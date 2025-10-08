@@ -1,77 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exchange Position Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f6f8;
-      color: #222;
-    }
-    header {
-      background: #0056b3;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    .date {
-      font-size: 1rem;
-      margin-top: 0.3rem;
-      opacity: 0.9;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: #0056b3;
-      border-bottom: 2px solid #0056b3;
-      padding-bottom: 0.4rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.6rem;
-    }
-    thead {
-      background: #e9ecef;
-    }
-    th, td {
-      padding: 0.6rem;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    tr:hover {
-      background: #f1f1f1;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Exchange Position Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; margin: 0; background: #f7f8fa; color: #222; }
+  header { text-align: center; background: #0056b3; color: #fff; padding: 1rem; }
+  main { max-width: 900px; margin: 2rem auto; background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  h2 { color: #0056b3; margin-top: 1.5rem; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  th, td { border: 1px solid #ccc; padding: 0.75rem; text-align: left; }
+  th { background: #e9f1ff; font-weight: 600; }
+  tr:hover { background: #f1f8ff; }
+  .no-data { color: #666; font-style: italic; text-align: center; padding: 1rem; }
+  footer { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #555; }
+  .btn-link { display: inline-block; background: #007bff; color: white; padding: 8px 12px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+  .btn-link:hover { background: #0056b3; }
+</style>
 </head>
 <body>
   <header>
     <h1>Exchange Position Page</h1>
-    <div class="date" id="currentDate"></div>
+    <div id="currentDate"></div>
   </header>
 
   <main>
@@ -83,7 +35,7 @@
         </thead>
         <tbody></tbody>
       </table>
-      <p id="noOfficersMsg" style="display:none;">No officers found.</p>
+      <a href="update.html" class="btn-link">Update Officers / Failures</a>
     </section>
 
     <section>
@@ -94,55 +46,56 @@
         </thead>
         <tbody></tbody>
       </table>
-      <p id="noFailuresMsg" style="display:none;">No pending failures.</p>
     </section>
   </main>
 
   <footer>
-    Last updated: <span id="lastUpdated">Loading...</span>
+    Last data load: <span id="lastLoad"></span>
   </footer>
 
   <script>
     // Display current date
     const now = new Date();
-    document.getElementById("currentDate").textContent =
-      now.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    document.getElementById("currentDate").textContent = now.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
-    // Fetch data.json
+    // Load data from localStorage or fallback to data.json
     async function loadData() {
-      try {
-        const res = await fetch("data.json?_=" + Date.now());
-        const data = await res.json();
-        populateTables(data);
-        document.getElementById("lastUpdated").textContent = new Date().toLocaleString();
-      } catch (err) {
-        console.error(err);
-        document.getElementById("lastUpdated").textContent = "Error loading data.";
+      let data;
+      const localData = localStorage.getItem('exchangeData');
+      if (localData) {
+        data = JSON.parse(localData);
+      } else {
+        const res = await fetch('data.json');
+        data = await res.json();
+        localStorage.setItem('exchangeData', JSON.stringify(data));
       }
+      renderTables(data);
+      document.getElementById("lastLoad").textContent = new Date().toLocaleString();
     }
 
-    function populateTables(data) {
-      const officersBody = document.querySelector("#officersTable tbody");
-      const failuresBody = document.querySelector("#failuresTable tbody");
+    function renderTables(data) {
+      const officerBody = document.querySelector("#officersTable tbody");
+      const failureBody = document.querySelector("#failuresTable tbody");
 
-      officersBody.innerHTML = "";
-      failuresBody.innerHTML = "";
+      officerBody.innerHTML = "";
+      failureBody.innerHTML = "";
 
-      if (!data.officers || data.officers.length === 0) {
-        document.getElementById("noOfficersMsg").style.display = "block";
+      if (data.officers.length === 0) {
+        officerBody.innerHTML = '<tr><td colspan="3" class="no-data">No officers found</td></tr>';
       } else {
-        document.getElementById("noOfficersMsg").style.display = "none";
         data.officers.forEach(o => {
-          officersBody.innerHTML += `<tr><td>${o.name}</td><td>${o.position}</td><td>${o.movement || "-"}</td></tr>`;
+          const row = `<tr><td>${o.name}</td><td>${o.position}</td><td>${o.movement || '-'}</td></tr>`;
+          officerBody.innerHTML += row;
         });
       }
 
-      if (!data.pendingFailures || data.pendingFailures.length === 0) {
-        document.getElementById("noFailuresMsg").style.display = "block";
+      if (data.failures.length === 0) {
+        failureBody.innerHTML = '<tr><td colspan="2" class="no-data">No pending failures</td></tr>';
       } else {
-        document.getElementById("noFailuresMsg").style.display = "none";
-        data.pendingFailures.forEach(f => {
-          failuresBody.innerHTML += `<tr><td>${f.dateCreated}</td><td>${f.description}</td></tr>`;
+        data.failures.forEach(f => {
+          const date = new Date(f.date).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
+          const row = `<tr><td>${date}</td><td>${f.description}</td></tr>`;
+          failureBody.innerHTML += row;
         });
       }
     }
