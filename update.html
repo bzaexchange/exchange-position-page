@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Data - Exchange Position Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family:'Inter',sans-serif; background:#f9fafb; padding:20px; }
+    h1 { text-align:center; margin-bottom:25px; }
+    section {
+      background:white; padding:20px; border-radius:10px; margin-bottom:25px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    }
+    table { width:100%; border-collapse:collapse; margin-top:10px; }
+    th, td { border:1px solid #ddd; padding:8px; text-align:left; }
+    th { background:#f1f3f4; }
+    button { background:#007bff; color:white; border:none; border-radius:6px; padding:6px 12px; cursor:pointer; }
+    button:hover { background:#0056b3; }
+    footer { text-align:center; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <h1>Update Officers & Failures</h1>
+
+  <section>
+    <h2>Officers & Movements</h2>
+    <table id="officerTable">
+      <thead><tr><th>Name</th><th>Position</th><th>Movement</th><th>Action</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <button onclick="addOfficer()">+ Add Officer</button>
+  </section>
+
+  <section>
+    <h2>Pending Failures</h2>
+    <table id="failureTable">
+      <thead><tr><th>Date Created</th><th>Description</th><th>Action</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <button onclick="addFailure()">+ Add Failure</button>
+  </section>
+
+  <footer>
+    <button onclick="downloadData()">💾 Download Updated data.json</button>
+    <a href="index.html" style="margin-left:15px;">⬅ Back to Index</a>
+  </footer>
+
+  <script>
+    let data = { officers: [], pendingFailures: [] };
+
+    async function loadData() {
+      try {
+        const res = await fetch("data.json?_=" + Date.now());
+        data = await res.json();
+      } catch {
+        data = { officers: [], pendingFailures: [] };
+      }
+      render();
+    }
+
+    function render() {
+      const oBody = document.querySelector("#officerTable tbody");
+      oBody.innerHTML = "";
+      data.officers.forEach((o,i) => {
+        oBody.innerHTML += `
+          <tr>
+            <td><input value="${o.name}" /></td>
+            <td><input value="${o.position}" /></td>
+            <td><input value="${o.movement || ""}" /></td>
+            <td><button onclick="removeOfficer(${i})">❌</button></td>
+          </tr>`;
+      });
+
+      const fBody = document.querySelector("#failureTable tbody");
+      fBody.innerHTML = "";
+      data.pendingFailures.forEach((f,i) => {
+        fBody.innerHTML += `
+          <tr>
+            <td><input type="date" value="${f.dateCreated}" /></td>
+            <td><input value="${f.description}" /></td>
+            <td><button onclick="removeFailure(${i})">❌</button></td>
+          </tr>`;
+      });
+    }
+
+    function addOfficer() {
+      data.officers.push({ name:"", position:"", movement:"" });
+      render();
+    }
+    function removeOfficer(i) {
+      data.officers.splice(i,1);
+      render();
+    }
+
+    function addFailure() {
+      const today = new Date().toISOString().split("T")[0];
+      data.pendingFailures.push({ dateCreated: today, description:"" });
+      render();
+    }
+    function removeFailure(i) {
+      data.pendingFailures.splice(i,1);
+      render();
+    }
+
+    function downloadData() {
+      // collect latest input values
+      const oRows = document.querySelectorAll("#officerTable tbody tr");
+      data.officers = Array.from(oRows).map(r => ({
+        name: r.children[0].querySelector("input").value,
+        position: r.children[1].querySelector("input").value,
+        movement: r.children[2].querySelector("input").value
+      }));
+
+      const fRows = document.querySelectorAll("#failureTable tbody tr");
+      data.pendingFailures = Array.from(fRows).map(r => ({
+        dateCreated: r.children[0].querySelector("input").value,
+        description: r.children[1].querySelector("input").value
+      }));
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "data.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
