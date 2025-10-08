@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Update Data - Exchange Position Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Inter', sans-serif; margin: 0; background: #f9fafc; color: #222; }
+  body { font-family: 'Inter', sans-serif; background: #f9fafc; margin: 0; color: #222; }
   header { text-align: center; background: #0056b3; color: white; padding: 1rem; }
   main { max-width: 800px; margin: 2rem auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
   h2 { color: #0056b3; }
@@ -19,7 +19,6 @@
   .del-btn { background: #dc3545; color: white; }
   .save-btn { background: #28a745; color: white; margin-top: 1rem; }
   .back-link { display: inline-block; background: #6c757d; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; margin-top: 10px; }
-  .back-link:hover { background: #5a6268; }
 </style>
 </head>
 <body>
@@ -37,22 +36,23 @@
     <section>
       <h2>Pending Failures</h2>
       <table id="failureTable">
-        <thead><tr><th>Date Created</th><th>Description</th><th>Action</th></tr></thead>
+        <thead><tr><th>Date</th><th>Description</th><th>Action</th></tr></thead>
         <tbody></tbody>
       </table>
       <button class="add-btn" onclick="addFailure()">Add Failure</button>
     </section>
 
-    <button class="save-btn" onclick="saveData()">💾 Save Changes</button><br>
+    <button class="save-btn" onclick="saveData()">💾 Save (Copy JSON Below)</button><br>
+    <textarea id="jsonOutput" rows="10" style="width:100%;margin-top:1rem;font-family:monospace;"></textarea>
     <a href="index.html" class="back-link">← Back to Main Page</a>
   </main>
 
   <script>
     let data = { officers: [], failures: [] };
 
-    function loadData() {
-      const stored = localStorage.getItem('exchangeData');
-      if (stored) data = JSON.parse(stored);
+    async function loadData() {
+      const res = await fetch('data.json?nocache=' + Date.now());
+      data = await res.json();
       renderTables();
     }
 
@@ -89,14 +89,8 @@
       data.failures.push({ date: today, description: "" });
       renderTables();
     }
-    function deleteOfficer(i) {
-      data.officers.splice(i, 1);
-      renderTables();
-    }
-    function deleteFailure(i) {
-      data.failures.splice(i, 1);
-      renderTables();
-    }
+    function deleteOfficer(i) { data.officers.splice(i, 1); renderTables(); }
+    function deleteFailure(i) { data.failures.splice(i, 1); renderTables(); }
 
     function saveData() {
       const oRows = document.querySelectorAll("#officerTable tbody tr");
@@ -105,15 +99,16 @@
       data.failures = [];
 
       oRows.forEach(r => {
-        const inputs = r.querySelectorAll("input");
-        data.officers.push({ name: inputs[0].value, position: inputs[1].value, movement: inputs[2].value });
+        const i = r.querySelectorAll("input");
+        data.officers.push({ name: i[0].value, position: i[1].value, movement: i[2].value });
       });
       fRows.forEach(r => {
-        const inputs = r.querySelectorAll("input");
-        data.failures.push({ date: inputs[0].value, description: inputs[1].value });
+        const i = r.querySelectorAll("input");
+        data.failures.push({ date: i[0].value, description: i[1].value });
       });
-      localStorage.setItem('exchangeData', JSON.stringify(data));
-      alert("Data saved successfully!");
+
+      document.getElementById("jsonOutput").value = JSON.stringify(data, null, 2);
+      alert("Copy the JSON below and replace it into data.json on GitHub to make it live.");
     }
 
     loadData();
