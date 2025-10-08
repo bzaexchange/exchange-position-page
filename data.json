@@ -1,0 +1,21 @@
+{
+  "officers": [
+    { "name": "Shri A. Kumar", "position": "ADSTE/BZA" },
+    { "name": "Shri R. Singh", "position": "SSE/Signal/GALA" },
+    { "name": "Smt. P. Reddy", "position": "JE/Tele/BZA" }
+  ],
+  "pendingFailures": [
+    {
+      "dateCreated": "2025-10-06",
+      "description": "Signal post lamp failure at KM 389/14 between GALA–BZA section."
+    },
+    {
+      "dateCreated": "2025-10-07",
+      "description": "Track circuit not picking up at BZA Yard Line No. 5."
+    },
+    {
+      "dateCreated": "2025-10-08",
+      "description": "OFC link intermittent fault detected near GALA exchange."
+    }
+  ]
+}

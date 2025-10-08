@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exchange Position Page</title>
+
+  <!-- Google Font for readability -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ====== BASIC PAGE STYLE ====== */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f8f9fa;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    #current-date {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2c3e50;
+      border-bottom: 2px solid #eaeaea;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    thead {
+      background: #f1f3f4;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      font-weight: 600;
+      color: #333;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .empty-message {
+      text-align: center;
+      color: #999;
+      font-style: italic;
+      padding: 15px 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      th, td {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Exchange Position Page</h1>
+    <div id="current-date"></div>
+  </header>
+
+  <!-- Officers Section -->
+  <section id="officers-section">
+    <h2>Officers</h2>
+    <table id="officers-table">
+      <thead>
+        <tr><th>Name</th><th>Position</th></tr>
+      </thead>
+      <tbody id="officers-body">
+        <!-- Dynamic rows will appear here -->
+      </tbody>
+    </table>
+    <div class="empty-message" id="officers-empty" style="display:none;">
+      No officers found.
+    </div>
+  </section>
+
+  <!-- Pending Failures Section -->
+  <section id="failures-section">
+    <h2>Pending Failures</h2>
+    <table id="failures-table">
+      <thead>
+        <tr><th>Date Created</th><th>Description of Failure/Issue</th></tr>
+      </thead>
+      <tbody id="failures-body">
+        <!-- Dynamic rows will appear here -->
+      </tbody>
+    </table>
+    <div class="empty-message" id="failures-empty" style="display:none;">
+      No pending failures.
+    </div>
+  </section>
+
+  <footer id="footer">
+    <!-- Footer will show data load timestamp -->
+  </footer>
+
+  <script>
+    // ====== Display Current Date ======
+    const dateElem = document.getElementById("current-date");
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString("en-IN", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+    dateElem.textContent = formattedDate;
+
+    // ====== Load Data from data.json ======
+    async function loadData() {
+      try {
+        const response = await fetch("data.json?_=" + Date.now()); // prevent cache
+        const data = await response.json();
+
+        populateOfficers(data.officers || []);
+        populateFailures(data.pendingFailures || []);
+
+        const footer = document.getElementById("footer");
+        footer.textContent = "Last data load: " + new Date().toLocaleString();
+      } catch (error) {
+        console.error("Error loading data.json:", error);
+        document.getElementById("officers-empty").textContent = "Error loading data.";
+        document.getElementById("officers-empty").style.display = "block";
+      }
+    }
+
+    function populateOfficers(officers) {
+      const tbody = document.getElementById("officers-body");
+      const emptyMsg = document.getElementById("officers-empty");
+      tbody.innerHTML = "";
+
+      if (officers.length === 0) {
+        emptyMsg.style.display = "block";
+        return;
+      }
+      emptyMsg.style.display = "none";
+
+      officers.forEach(officer => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${officer.name}</td><td>${officer.position}</td>`;
+        tbody.appendChild(row);
+      });
+    }
+
+    function populateFailures(failures) {
+      const tbody = document.getElementById("failures-body");
+      const emptyMsg = document.getElementById("failures-empty");
+      tbody.innerHTML = "";
+
+      if (failures.length === 0) {
+        emptyMsg.style.display = "block";
+        return;
+      }
+      emptyMsg.style.display = "none";
+
+      failures.forEach(item => {
+        const date = new Date(item.dateCreated);
+        const formatted = date.toLocaleDateString("en-IN", {
+          year: "numeric",
+          month: "short",
+          day: "numeric"
+        });
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${formatted}</td><td>${item.description}</td>`;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Initialize page
+    loadData();
+  </script>
+</body>
+</html>
