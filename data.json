@@ -1,12 +1,12 @@
 {
   "officers": [
-    { "name": "Shri A. Kumar", "position": "ADSTE/BZA", "movement": "Inspection at Vijayawada" },
-    { "name": "Shri R. Singh", "position": "SSE/Signal/GALA", "movement": "Yard visit - Signal check" },
-    { "name": "Smt. P. Reddy", "position": "JE/Tele/BZA", "movement": "Attending maintenance at BZA HQ" }
+    { "name": "MOHIT SONAKIYA", "position": "DRM", "movement": "" },
+    { "name": "P.E. EDWIN", "position": "ADRM (INFRA)", "movement": "" },
+    { "name": "K. SRINIVASA RAO", "position": "ADRM (OP)", "movement": "" },
+    { "name": "P. SATHISH SANKAR", "position": "Sr.DSTE", "movement": "" },
+    { "name": "A. SRINIVASULU", "position": "DSTE", "movement": "" },
+    { "name": "V.V.S. ADITYA KUMAR", "position": "SSE", "movement": "" },
+    { "name": "RAJITHA", "position": "JE", "movement": "" }
   ],
-  "pendingFailures": [
-    { "dateCreated": "2025-10-08", "description": "OFC link intermittent fault near GALA exchange." },
-    { "dateCreated": "2025-10-07", "description": "Track circuit not picking up at BZA Yard Line No. 5." },
-    { "dateCreated": "2025-10-06", "description": "Signal post lamp failure at KM 389/14 between GALA–BZA section." }
-  ]
+  "failures": []
 }
