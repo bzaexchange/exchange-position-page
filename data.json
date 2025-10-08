@@ -1,6 +1,6 @@
 {
   "officers": [
-    { "name": "Shri A. Kumar", "position": "ADSTE/BZA" },
+    { "name": "DRM", "position": "HQ" },
     { "name": "Shri R. Singh", "position": "SSE/Signal/GALA" },
     { "name": "Smt. P. Reddy", "position": "JE/Tele/BZA" }
   ],
@@ -19,3 +19,4 @@
     }
   ]
 }
+
