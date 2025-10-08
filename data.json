@@ -1,12 +1,50 @@
 {
   "officers": [
-    { "name": "MOHIT SONAKIYA", "position": "DRM", "movement": "" },
-    { "name": "P.E. EDWIN", "position": "ADRM (INFRA)", "movement": "" },
-    { "name": "K. SRINIVASA RAO", "position": "ADRM (OP)", "movement": "" },
-    { "name": "P. SATHISH SANKAR", "position": "Sr.DSTE", "movement": "" },
-    { "name": "A. SRINIVASULU", "position": "DSTE", "movement": "" },
-    { "name": "V.V.S. ADITYA KUMAR", "position": "SSE", "movement": "" },
-    { "name": "RAJITHA", "position": "JE", "movement": "" }
+    {
+      "name": "MOHIT SONAKIYA",
+      "position": "DRM",
+      "movement": "HQ"
+    },
+    {
+      "name": "P.E. EDWIN",
+      "position": "ADRM (INFRA)",
+      "movement": "HQ"
+    },
+    {
+      "name": "K. SRINIVASA RAO",
+      "position": "ADRM (OP)",
+      "movement": "NLR"
+    },
+    {
+      "name": "P. SATHISH SANKAR",
+      "position": "Sr.DSTE",
+      "movement": "BVRM-NI WORK"
+    },
+    {
+      "name": "A. SRINIVASULU",
+      "position": "DSTE",
+      "movement": "HQ"
+    },
+    {
+      "name": "V.V.S. ADITYA KUMAR",
+      "position": "SSE",
+      "movement": "HQ"
+    },
+    {
+      "name": "RAJITHA",
+      "position": "JE",
+      "movement": "HQ"
+    }
   ],
-  "failures": []
+  "failures": [],
+  "pendingFailures": [
+    {
+      "dateCreated": "2025-10-07",
+      "description": "TELEPHONE PAIR..."
+    },
+    {
+      "dateCreated": "2025-01-07",
+      "description": "CPOH RAILNET FAILURE"
+    }
+  ]
 }
