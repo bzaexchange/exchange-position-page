@@ -4,104 +4,147 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exchange Position Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family:'Inter',sans-serif; background:#f8f9fa; color:#222; margin:0; padding:20px; }
-    header { text-align:center; margin-bottom:20px; }
-    h1 { margin:0; font-size:2rem; color:#333; }
-    #current-date { color:#555; margin-top:5px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+    header {
+      background: #0056b3;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .date {
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      opacity: 0.9;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
     section {
-      background:#fff; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);
-      padding:20px; margin-bottom:25px;
+      margin-bottom: 2rem;
     }
-    h2 { border-bottom:2px solid #eee; padding-bottom:5px; color:#2c3e50; }
-    table { width:100%; border-collapse:collapse; margin-top:10px; }
-    th, td { border-bottom:1px solid #ddd; padding:10px; text-align:left; }
-    th { background:#f1f3f4; }
-    tr:hover { background:#f9f9f9; }
-    .empty-message { text-align:center; color:#888; padding:12px; }
-    .btn {
-      background:#007bff; color:white; border:none; border-radius:6px;
-      padding:8px 14px; text-decoration:none; font-size:0.9rem;
+    h2 {
+      color: #0056b3;
+      border-bottom: 2px solid #0056b3;
+      padding-bottom: 0.4rem;
     }
-    .btn:hover { background:#0056b3; }
-    .top-right { position:absolute; top:15px; right:20px; }
-    footer { text-align:center; color:#777; margin-top:20px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.6rem;
+    }
+    thead {
+      background: #e9ecef;
+    }
+    th, td {
+      padding: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    tr:hover {
+      background: #f1f1f1;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
-  <a class="btn top-right" href="update.html">Edit / Update Data</a>
-
   <header>
     <h1>Exchange Position Page</h1>
-    <div id="current-date"></div>
+    <div class="date" id="currentDate"></div>
   </header>
 
-  <section>
-    <h2>Officers & Movements</h2>
-    <table id="officers-table">
-      <thead><tr><th>Name</th><th>Position</th><th>Movement</th></tr></thead>
-      <tbody id="officers-body"></tbody>
-    </table>
-    <div id="officers-empty" class="empty-message" style="display:none;">No officers found.</div>
-  </section>
+  <main>
+    <section>
+      <h2>Officers</h2>
+      <table id="officersTable">
+        <thead>
+          <tr><th>Name</th><th>Position</th><th>Movement</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="noOfficersMsg" style="display:none;">No officers found.</p>
+    </section>
 
-  <section>
-    <h2>Pending Failures</h2>
-    <table id="failures-table">
-      <thead><tr><th>Date Created</th><th>Description of Failure/Issue</th></tr></thead>
-      <tbody id="failures-body"></tbody>
-    </table>
-    <div id="failures-empty" class="empty-message" style="display:none;">No pending failures.</div>
-  </section>
+    <section>
+      <h2>Pending Failures</h2>
+      <table id="failuresTable">
+        <thead>
+          <tr><th>Date Created</th><th>Description of Failure/Issue</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="noFailuresMsg" style="display:none;">No pending failures.</p>
+    </section>
+  </main>
 
-  <footer id="footer"></footer>
+  <footer>
+    Last updated: <span id="lastUpdated">Loading...</span>
+  </footer>
 
   <script>
-    document.getElementById("current-date").textContent =
-      new Date().toLocaleDateString("en-IN", {
-        weekday:"long", year:"numeric", month:"long", day:"numeric"
-      });
+    // Display current date
+    const now = new Date();
+    document.getElementById("currentDate").textContent =
+      now.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
+    // Fetch data.json
     async function loadData() {
       try {
         const res = await fetch("data.json?_=" + Date.now());
         const data = await res.json();
-        populateOfficers(data.officers);
-        populateFailures(data.pendingFailures);
-        document.getElementById("footer").textContent =
-          "Last data load: " + new Date().toLocaleString();
-      } catch (e) { console.error(e); }
+        populateTables(data);
+        document.getElementById("lastUpdated").textContent = new Date().toLocaleString();
+      } catch (err) {
+        console.error(err);
+        document.getElementById("lastUpdated").textContent = "Error loading data.";
+      }
     }
 
-    function populateOfficers(officers) {
-      const body = document.getElementById("officers-body");
-      body.innerHTML = "";
-      if (!officers || officers.length === 0) {
-        document.getElementById("officers-empty").style.display = "block";
-        return;
-      }
-      officers.forEach(o => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${o.name}</td><td>${o.position}</td><td>${o.movement || "-"}</td>`;
-        body.appendChild(row);
-      });
-    }
+    function populateTables(data) {
+      const officersBody = document.querySelector("#officersTable tbody");
+      const failuresBody = document.querySelector("#failuresTable tbody");
 
-    function populateFailures(failures) {
-      const body = document.getElementById("failures-body");
-      body.innerHTML = "";
-      if (!failures || failures.length === 0) {
-        document.getElementById("failures-empty").style.display = "block";
-        return;
+      officersBody.innerHTML = "";
+      failuresBody.innerHTML = "";
+
+      if (!data.officers || data.officers.length === 0) {
+        document.getElementById("noOfficersMsg").style.display = "block";
+      } else {
+        document.getElementById("noOfficersMsg").style.display = "none";
+        data.officers.forEach(o => {
+          officersBody.innerHTML += `<tr><td>${o.name}</td><td>${o.position}</td><td>${o.movement || "-"}</td></tr>`;
+        });
       }
-      failures.forEach(f => {
-        const date = new Date(f.dateCreated);
-        const formatted = date.toLocaleDateString("en-IN", {year:"numeric",month:"short",day:"numeric"});
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${formatted}</td><td>${f.description}</td>`;
-        body.appendChild(row);
-      });
+
+      if (!data.pendingFailures || data.pendingFailures.length === 0) {
+        document.getElementById("noFailuresMsg").style.display = "block";
+      } else {
+        document.getElementById("noFailuresMsg").style.display = "none";
+        data.pendingFailures.forEach(f => {
+          failuresBody.innerHTML += `<tr><td>${f.dateCreated}</td><td>${f.description}</td></tr>`;
+        });
+      }
     }
 
     loadData();
