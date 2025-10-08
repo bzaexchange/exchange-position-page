@@ -1,8 +1,8 @@
 {
   "officers": [
-    { "name": "DRM- Shri Mohit Sonikya ", "Movement": "HQ" },
-    { "name": "Shri R. Singh", "Designation": "SSE/Signal/GALA" },
-    { "name": "Smt. P. Reddy", "Designationn": "JE/Tele/BZA" }
+    { "name": "Shri A. Kumar", "position": "ADSTE/BZA" },
+    { "name": "Shri R. Singh", "position": "SSE/Signal/GALA" },
+    { "name": "Smt. P. Reddy", "position": "JE/Tele/BZA" }
   ],
   "pendingFailures": [
     {
@@ -19,4 +19,3 @@
     }
   ]
 }
-
