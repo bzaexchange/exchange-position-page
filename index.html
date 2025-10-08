@@ -54,48 +54,43 @@
   </footer>
 
   <script>
-    // Display current date
+    // Show current date
     const now = new Date();
-    document.getElementById("currentDate").textContent = now.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    document.getElementById("currentDate").textContent =
+      now.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
-    // Load data from localStorage or fallback to data.json
     async function loadData() {
-      let data;
-      const localData = localStorage.getItem('exchangeData');
-      if (localData) {
-        data = JSON.parse(localData);
-      } else {
-        const res = await fetch('data.json');
-        data = await res.json();
-        localStorage.setItem('exchangeData', JSON.stringify(data));
+      try {
+        const response = await fetch('data.json?nocache=' + Date.now()); // prevents cache
+        const data = await response.json();
+        renderTables(data);
+        document.getElementById("lastLoad").textContent = new Date().toLocaleString();
+      } catch (err) {
+        console.error("Error loading data.json:", err);
+        document.querySelector("main").innerHTML = "<p style='text-align:center;color:red;'>Error loading data.json</p>";
       }
-      renderTables(data);
-      document.getElementById("lastLoad").textContent = new Date().toLocaleString();
     }
 
     function renderTables(data) {
       const officerBody = document.querySelector("#officersTable tbody");
       const failureBody = document.querySelector("#failuresTable tbody");
-
       officerBody.innerHTML = "";
       failureBody.innerHTML = "";
 
-      if (data.officers.length === 0) {
+      if (!data.officers || data.officers.length === 0) {
         officerBody.innerHTML = '<tr><td colspan="3" class="no-data">No officers found</td></tr>';
       } else {
         data.officers.forEach(o => {
-          const row = `<tr><td>${o.name}</td><td>${o.position}</td><td>${o.movement || '-'}</td></tr>`;
-          officerBody.innerHTML += row;
+          officerBody.innerHTML += `<tr><td>${o.name}</td><td>${o.position}</td><td>${o.movement || '-'}</td></tr>`;
         });
       }
 
-      if (data.failures.length === 0) {
+      if (!data.failures || data.failures.length === 0) {
         failureBody.innerHTML = '<tr><td colspan="2" class="no-data">No pending failures</td></tr>';
       } else {
         data.failures.forEach(f => {
           const date = new Date(f.date).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
-          const row = `<tr><td>${date}</td><td>${f.description}</td></tr>`;
-          failureBody.innerHTML += row;
+          failureBody.innerHTML += `<tr><td>${date}</td><td>${f.description}</td></tr>`;
         });
       }
     }
