@@ -1,149 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Daily Position</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Exchange Daily Position</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body { background: #f3f6fa; font-family: "Inter", sans-serif; }
+header { text-align: center; margin: 2rem 0; }
+.card { border: none; border-radius: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+.table th { background-color: #0d6efd; color: #fff; }
+.table td input { border: none; width: 100%; background: transparent; outline: none; text-align: center; }
+.action-btn { cursor: pointer; color: #dc3545; font-size: 1.2rem; }
+.add-row-btn { margin-top: 0.5rem; }
+footer { text-align: center; color: #777; margin-top: 2rem; font-size: 0.9rem; }
+</style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <div class="max-w-6xl mx-auto p-6">
-    <header class="text-center mb-8">
-      <h1 class="text-3xl font-bold mb-2">Exchange Daily Position (Edit Mode)</h1>
-      <p id="current-date" class="text-gray-600"></p>
-    </header>
+<body>
+<div class="container my-4">
+  <header>
+    <h1>Edit Exchange Daily Position</h1>
+    <p id="currentDate" class="text-secondary"></p>
+  </header>
 
-    <!-- Toolbar -->
-    <div class="flex flex-wrap justify-between items-center mb-6">
-      <div class="space-x-4">
-        <button id="saveData" class="px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700">💾 Save Changes</button>
-        <button id="clearData" class="px-4 py-2 bg-gray-400 text-white rounded-md shadow hover:bg-gray-500">🧹 Clear Saved Data</button>
-      </div>
-      <button onclick="location.href='index.html'" class="px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700">👁 View Public Page</button>
-    </div>
-
-    <!-- Officers Movements -->
-    <section class="bg-white rounded-2xl shadow-lg p-6 mb-8">
-      <h2 class="text-xl font-semibold mb-4">📋 Officers Movements</h2>
-      <table id="officersTable" class="min-w-full border border-gray-300 rounded-lg mb-4">
-        <thead class="bg-blue-100">
-          <tr>
-            <th class="px-4 py-2 border">Designation</th>
-            <th class="px-4 py-2 border">Name</th>
-            <th class="px-4 py-2 border">Movement</th>
-            <th class="px-4 py-2 border">Action</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <button id="addOfficer" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">➕ Add Officer</button>
-    </section>
-
-    <!-- Failures -->
-    <section class="bg-white rounded-2xl shadow-lg p-6 mb-8">
-      <h2 class="text-xl font-semibold mb-4">⚠️ Pending Failures / To Do Works</h2>
-      <table id="failuresTable" class="min-w-full border border-gray-300 rounded-lg mb-4">
-        <thead class="bg-red-100">
-          <tr>
-            <th class="px-4 py-2 border">Section</th>
-            <th class="px-4 py-2 border">Date from pending</th>
-            <th class="px-4 py-2 border">Description</th>
-            <th class="px-4 py-2 border">Action</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <button id="addFailure" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">➕ Add Failure</button>
-    </section>
+  <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+    <button id="saveGitHub" class="btn btn-primary btn-lg shadow">💾 Save to GitHub</button>
+    <button id="downloadExcel" class="btn btn-success btn-lg shadow">📊 Download Excel</button>
   </div>
 
-  <script>
-    document.getElementById("current-date").textContent = new Date().toLocaleDateString('en-IN', {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  <div class="card p-3">
+    <h5 class="text-primary mb-3">Officers Movements</h5>
+    <div class="table-responsive">
+      <table class="table text-center align-middle" id="officersTable">
+        <thead><tr><th>Designation</th><th>Name</th><th>Movement</th><th>Action</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button id="addOfficer" class="btn btn-outline-primary btn-sm add-row-btn">+ Add Row</button>
+  </div>
+
+  <div class="card p-3">
+    <h5 class="text-danger mb-3">Pending Failures / To Do Works</h5>
+    <div class="table-responsive">
+      <table class="table text-center align-middle" id="failuresTable">
+        <thead><tr><th>Section</th><th>Date from Pending</th><th>Description</th><th>Action</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button id="addFailure" class="btn btn-outline-danger btn-sm add-row-btn">+ Add Row</button>
+  </div>
+
+  <footer>
+    <p>Connected to <a href="https://github.com/bzaexchange/exchange-position-page" target="_blank">@bzaexchange/exchange-position-page</a></p>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+const username = "bzaexchange";
+const repo = "exchange-position-page";
+const filePath = "data.json";
+const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
+
+document.getElementById("currentDate").textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+async function loadData() {
+  const res = await fetch(apiUrl);
+  const json = await res.json();
+  const data = JSON.parse(atob(json.content));
+  fillTable("officersTable", data.officers);
+  fillTable("failuresTable", data.failures);
+}
+
+function fillTable(id, rows) {
+  const tbody = document.querySelector(`#${id} tbody`);
+  tbody.innerHTML = "";
+  rows.forEach(r => addRow(id, r));
+}
+
+function addRow(id, row = {col1:"",col2:"",col3:""}) {
+  const tbody = document.querySelector(`#${id} tbody`);
+  const tr = document.createElement("tr");
+  for (const key in row) {
+    const td = document.createElement("td");
+    const inp = document.createElement("input");
+    inp.value = row[key];
+    td.appendChild(inp);
+    tr.appendChild(td);
+  }
+  const tdAct = document.createElement("td");
+  tdAct.innerHTML = '<span class="action-btn" title="Delete Row">🗑️</span>';
+  tdAct.onclick = () => tr.remove();
+  tr.appendChild(tdAct);
+  tbody.appendChild(tr);
+}
+
+document.getElementById("addOfficer").onclick = () => addRow("officersTable");
+document.getElementById("addFailure").onclick = () => addRow("failuresTable");
+
+document.getElementById("downloadExcel").onclick = () => {
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, tableToSheet("officersTable"), "Officers Movements");
+  XLSX.utils.book_append_sheet(wb, tableToSheet("failuresTable"), "Pending Failures");
+  XLSX.writeFile(wb, `Exchange_Daily_Position_${new Date().toISOString().split('T')[0]}.xlsx`);
+};
+
+function tableToSheet(id) {
+  const table = document.getElementById(id);
+  return XLSX.utils.table_to_sheet(table);
+}
+
+document.getElementById("saveGitHub").onclick = async () => {
+  const officers = extractTable("officersTable");
+  const failures = extractTable("failuresTable");
+  const data = { officers, failures };
+  const sha = await getCurrentSha();
+  const body = {
+    message: "Update Exchange Daily Position",
+    content: btoa(JSON.stringify(data, null, 2)),
+    sha
+  };
+  const token = prompt("Enter your GitHub Personal Access Token:");
+  if (!token) return alert("Token required!");
+  const res = await fetch(apiUrl, {
+    method: "PUT",
+    headers: { Authorization: `token ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  if (res.ok) alert("✅ Data saved successfully to GitHub!");
+  else alert("❌ Failed to save data. Check token and permissions.");
+};
+
+async function getCurrentSha() {
+  const res = await fetch(apiUrl);
+  const json = await res.json();
+  return json.sha;
+}
+
+function extractTable(id) {
+  const rows = [];
+  document.querySelectorAll(`#${id} tbody tr`).forEach(tr => {
+    const inputs = tr.querySelectorAll("input");
+    rows.push({
+      col1: inputs[0]?.value || "",
+      col2: inputs[1]?.value || "",
+      col3: inputs[2]?.value || ""
     });
+  });
+  return rows;
+}
 
-    const officersTable = document.querySelector("#officersTable tbody");
-    const failuresTable = document.querySelector("#failuresTable tbody");
-
-    function createRow(table, fields) {
-      const tr = document.createElement("tr");
-      fields.forEach(f => {
-        const td = document.createElement("td");
-        td.className = "border px-4 py-2";
-        const input = document.createElement("input");
-        input.type = f === "date" ? "date" : "text";
-        input.placeholder = f;
-        input.className = "w-full border rounded p-1";
-        td.appendChild(input);
-        tr.appendChild(td);
-      });
-      const delTd = document.createElement("td");
-      delTd.className = "border px-4 py-2 text-center";
-      const btn = document.createElement("button");
-      btn.textContent = "🗑️";
-      btn.className = "text-red-600 hover:text-red-800";
-      btn.onclick = () => tr.remove();
-      delTd.appendChild(btn);
-      tr.appendChild(delTd);
-      table.appendChild(tr);
-    }
-
-    function populate(table, data, fields) {
-      table.innerHTML = "";
-      data.forEach(d => {
-        const tr = document.createElement("tr");
-        fields.forEach(f => {
-          const td = document.createElement("td");
-          td.className = "border px-4 py-2";
-          const input = document.createElement("input");
-          input.type = f === "date" ? "date" : "text";
-          input.value = d[f] || "";
-          input.className = "w-full border rounded p-1";
-          td.appendChild(input);
-          tr.appendChild(td);
-        });
-        const delTd = document.createElement("td");
-        delTd.className = "border px-4 py-2 text-center";
-        const btn = document.createElement("button");
-        btn.textContent = "🗑️";
-        btn.className = "text-red-600 hover:text-red-800";
-        btn.onclick = () => tr.remove();
-        delTd.appendChild(btn);
-        tr.appendChild(delTd);
-        table.appendChild(tr);
-      });
-    }
-
-    // Load from storage
-    const officersData = JSON.parse(localStorage.getItem('officersData') || '[]');
-    const failuresData = JSON.parse(localStorage.getItem('failuresData') || '[]');
-    populate(officersTable, officersData, ["designation", "name", "movement"]);
-    populate(failuresTable, failuresData, ["section", "date", "description"]);
-
-    document.getElementById("addOfficer").onclick = () => createRow(officersTable, ["designation", "name", "movement"]);
-    document.getElementById("addFailure").onclick = () => createRow(failuresTable, ["section", "date", "description"]);
-
-    function saveToLocalStorage() {
-      const getTableData = (table, fields) => {
-        return [...table.querySelectorAll("tr")].map(tr => {
-          const inputs = tr.querySelectorAll("input");
-          let obj = {};
-          fields.forEach((f, i) => obj[f] = inputs[i].value);
-          return obj;
-        });
-      };
-      localStorage.setItem("officersData", JSON.stringify(getTableData(officersTable, ["designation", "name", "movement"])));
-      localStorage.setItem("failuresData", JSON.stringify(getTableData(failuresTable, ["section", "date", "description"])));
-      alert("✅ Data saved successfully!");
-    }
-
-    document.getElementById("saveData").onclick = saveToLocalStorage;
-    document.getElementById("clearData").onclick = () => {
-      if (confirm("Clear all saved data?")) {
-        localStorage.clear();
-        location.reload();
-      }
-    };
-  </script>
+loadData();
+</script>
 </body>
 </html>
