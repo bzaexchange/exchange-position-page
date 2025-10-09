@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exchange Daily position - Public View</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { text-align: center; margin-bottom: 5px; }
+  #date { text-align: center; color: #555; margin-bottom: 20px; }
+  .card {
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  .card h2 { margin-top: 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+  th { background-color: #f1f5f9; }
+  .empty { text-align: center; color: #888; padding: 15px; }
+  .toolbar { text-align: center; margin-bottom: 20px; }
+  button {
+    background-color: #2563eb; color: white; border: none; padding: 8px 14px;
+    border-radius: 6px; cursor: pointer; font-size: 14px;
+  }
+  button:hover { background-color: #1d4ed8; }
+</style>
+</head>
+<body>
+
+<h1>Exchange Daily position</h1>
+<div id="date"></div>
+
+<div class="toolbar">
+  <button onclick="window.location.href='index.html'"><i class="ri-edit-line"></i> Go to Edit Page</button>
+</div>
+
+<div class="card">
+  <h2>Officers movements</h2>
+  <table id="officersTable">
+    <thead>
+      <tr>
+        <th>Designation</th>
+        <th>Name</th>
+        <th>Movement</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div id="noOfficers" class="empty">No officer data available</div>
+</div>
+
+<div class="card">
+  <h2>Pending failures / To do works</h2>
+  <table id="failuresTable">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Date from pending</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div id="noFailures" class="empty">No pending failures entered</div>
+</div>
+
+<script>
+document.getElementById("date").textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+function loadData(){
+ const saved=localStorage.getItem("exchangeDailyPosition");
+ if(!saved){return;}
+ const data=JSON.parse(saved);
+ fillTable("officersTable",data.officers,"noOfficers");
+ fillTable("failuresTable",data.failures,"noFailures");
+}
+
+function fillTable(id,rows,emptyId){
+ const tbody=document.querySelector(`#${id} tbody`);
+ const emptyMsg=document.getElementById(emptyId);
+ if(!rows||rows.length===0){emptyMsg.style.display='block';return;}
+ emptyMsg.style.display='none';
+ rows.forEach(r=>{
+  const tr=document.createElement("tr");
+  r.forEach(cell=>{
+    const td=document.createElement("td");
+    td.textContent=cell||"-";
+    tr.appendChild(td);
+  });
+  tbody.appendChild(tr);
+ });
+}
+
+loadData();
+</script>
+
+</body>
+</html>
