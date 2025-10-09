@@ -47,7 +47,7 @@
 <div class="toolbar">
   <button id="downloadExcel"><i class="ri-file-excel-2-line"></i> Download Day Position (Excel)</button>
   <button id="clearData" class="clear-btn"><i class="ri-refresh-line"></i> Clear saved data</button>
-  <button onclick="window.location.href='view.html'"><i class="ri-eye-line"></i> View Public Page</button>
+  <button onclick="window.location.href='index.html'"><i class="ri-home-line"></i> Go to Public Page</button>
 </div>
 
 <div class="card">
@@ -100,7 +100,6 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script>
 const dateElem=document.getElementById("date");
 dateElem.textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
