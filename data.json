@@ -1,11 +1,31 @@
 {
   "officers": [
-    { "col1": "DRM", "col2": "MOHIT SONAKIYA", "col3": "Inspection at BZA" },
-    { "col1": "ADRM(INFRA)", "col2": "P.E.EDWIN", "col3": "At HQ" },
-    { "col1": "ADRM(OP)", "col2": "K.SRINIVASARAO", "col3": "Conference" }
+    {
+      "col1": "DRM",
+      "col2": "MOHIT SONAKIYA",
+      "col3": "Inspection at BZA"
+    },
+    {
+      "col1": "ADRM(INFRA)",
+      "col2": "P.E.EDWIN",
+      "col3": "At HQ"
+    },
+    {
+      "col1": "ADRM(OP)",
+      "col2": "K.SRINIVASARAO",
+      "col3": "Conference"
+    }
   ],
   "failures": [
-    { "col1": "BZA", "col2": "2025-10-08", "col3": "Signal failure rectification" },
-    { "col1": "GALA", "col2": "2025-10-09", "col3": "Track circuit maintenance" }
+    {
+      "col1": "BZA",
+      "col2": "2025-10-08",
+      "col3": "Signal failure rectification"
+    },
+    {
+      "col1": "GALA",
+      "col2": "2025-10-09",
+      "col3": "Track circuit maintenance"
+    }
   ]
 }
