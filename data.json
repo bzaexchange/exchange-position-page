@@ -100,7 +100,7 @@
     {
       "col1": "DLS, Projects, Constructions, ORH",
       "col2": "26-09-25",
-      "col3": "New maintenance office and wireless office wiring work"
+      "col3": "New maintenance office and wireless office wiring work completed, Power supply connection pending"
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
@@ -146,6 +146,11 @@
       "col1": "General works ",
       "col2": "04-10-25",
       "col3": "Maple (Rack 3 in MIS room) wiring work"
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ]
 }
