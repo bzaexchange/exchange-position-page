@@ -6,7 +6,7 @@
       "col3": "HQ"
     },
     {
-      "col1": "ADRM(INFRA)",
+      "col1": "ADRM INFRA",
       "col2": "P.E.Edwin",
       "col3": "HQ"
     },
@@ -96,6 +96,16 @@
       "col1": "DLS Projects, Constructions, ORH",
       "col2": "30-05-25",
       "col3": "\"CSI/M, OFC Cable termination work (Cable laying completed)\""
+    },
+    {
+      "col1": "DLS Projects, Constructions, ORH",
+      "col2": "26-09-25",
+      "col3": "New maintenance office and wireless office wiring work"
+    },
+    {
+      "col1": "DLS Projects, Constructions, ORH",
+      "col2": "09-06-25",
+      "col3": "IOH/DLS 67931 cable cut inside termination pending "
     },
     {
       "col1": "",
