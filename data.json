@@ -26,7 +26,7 @@
       "col3": "HQ"
     },
     {
-      "col1": "SSE/T/EXCH & PRS",
+      "col1": "SSE/T/EXCH ",
       "col2": "V.V.S.Aditya kumar",
       "col3": "HQ"
     },
@@ -45,7 +45,7 @@
     {
       "col1": "Divisional office",
       "col2": "15-11-2024",
-      "col3": "S&T office rack re-wiring work,"
+      "col3": "S&T office rack re-wiring work"
     },
     {
       "col1": "Divisional office",
@@ -83,34 +83,69 @@
       "col3": "STPM (ETTC Cable cut restoration work)"
     },
     {
-      "col1": "DLS Projects, Constructions, ORH",
+      "col1": "DLS, Projects, Constructions, ORH",
       "col2": "15-11-24",
       "col3": "725 quarters, near SIB- LB jointing work"
     },
     {
-      "col1": "DLS Projects, Constructions, ORH",
-      "col2": "03-02-24",
+      "col1": "DLS, Projects, Constructions, ORH",
+      "col2": "03-02-25",
       "col3": "Dy.CSTE/ GS office casing and capping work"
     },
     {
-      "col1": "DLS Projects, Constructions, ORH",
+      "col1": "DLS, Projects, Constructions, ORH",
       "col2": "30-05-25",
       "col3": "\"CSI/M, OFC Cable termination work (Cable laying completed)\""
     },
     {
-      "col1": "DLS Projects, Constructions, ORH",
+      "col1": "DLS, Projects, Constructions, ORH",
       "col2": "26-09-25",
       "col3": "New maintenance office and wireless office wiring work"
     },
     {
-      "col1": "DLS Projects, Constructions, ORH",
-      "col2": "09-06-25",
+      "col1": "DLS, Projects, Constructions, ORH",
+      "col2": "16-09-2025",
       "col3": "IOH/DLS 67931 cable cut inside termination pending "
     },
     {
-      "col1": "",
-      "col2": "",
-      "col3": ""
+      "col1": "Yard works",
+      "col2": "03-05-25",
+      "col3": "CN/stores to H cabin cable laying work 300 mtrs,"
+    },
+    {
+      "col1": "Yard works",
+      "col2": "28-08-25",
+      "col3": "Sick line box back side digging work 1 km"
+    },
+    {
+      "col1": "Yard works",
+      "col2": "10/09/2025",
+      "col3": "At RYP Scrap depot cable joint work (permanent) Test Pits to be done"
+    },
+    {
+      "col1": "General works ",
+      "col2": "04-02-25",
+      "col3": "All the racks must be updated with particulars and labelling to be done for all the cables (mostly completed)."
+    },
+    {
+      "col1": "General works ",
+      "col2": "16-06-25",
+      "col3": "DRM PS Chamber wiring work"
+    },
+    {
+      "col1": "General works ",
+      "col2": "01-07-25",
+      "col3": "FDMS particulars to be updated in all locations"
+    },
+    {
+      "col1": "General works ",
+      "col2": "26-07-25",
+      "col3": "Railnet Router-1 showing Power alarm .RCIL"
+    },
+    {
+      "col1": "General works ",
+      "col2": "04-10-25",
+      "col3": "Maple (Rack 3 in MIS room) wiring work"
     }
   ]
 }
