@@ -9,6 +9,16 @@
       "col1": "ADRM(INFRA)",
       "col2": "P.E.EDWIN",
       "col3": "At HQ"
+    },
+    {
+      "col1": "ADRM OP",
+      "col2": "K.Srinivas Rao",
+      "col3": "HQ"
+    },
+    {
+      "col1": "DSTE",
+      "col2": "DSTE",
+      "col3": "HQ"
     }
   ],
   "failures": [
@@ -16,6 +26,16 @@
       "col1": "BZA",
       "col2": "2025-10-08",
       "col3": "Signal failure rectification"
+    },
+    {
+      "col1": "TR DIV",
+      "col2": "09-10-2025",
+      "col3": "PHONE NOT WORKING"
+    },
+    {
+      "col1": "GDR",
+      "col2": "11-12-2025",
+      "col3": "TESTING"
     }
   ]
 }
