@@ -2,13 +2,13 @@
   "officers": [
     {
       "col1": "DRM",
-      "col2": "MOHIT SONAKIYA",
-      "col3": "Inspection at BZA"
+      "col2": "Mohit Sonkiya",
+      "col3": "HQ"
     },
     {
       "col1": "ADRM(INFRA)",
-      "col2": "P.E.EDWIN",
-      "col3": "At HQ"
+      "col2": "P.E.Edwin",
+      "col3": "HQ"
     },
     {
       "col1": "ADRM OP",
@@ -17,45 +17,65 @@
     },
     {
       "col1": "DSTE",
-      "col2": "A SRINIVASULU",
-      "col3": "HQ"
+      "col2": "A.Srinivasulu",
+      "col3": "KAVACH TRAINING, IRISET/SC UPTO 17-10-25"
     },
     {
       "col1": "ADSTE",
-      "col2": "V BRAHMAJI RAO",
+      "col2": "V. Brahmaji Rao",
       "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH & PRS",
-      "col2": "V.V.S.ADITYA KUMAR",
+      "col2": "V.V.S.Aitya kumar",
       "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
-      "col2": "RAJA RAJITHA",
+      "col2": "K.Raja rajitha",
       "col3": "LEAVE"
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ],
   "failures": [
     {
-      "col1": "BZA",
-      "col2": "2025-10-08",
-      "col3": "Signal failure rectification"
+      "col1": "Divisional office",
+      "col2": "15-11-2024",
+      "col3": "S&T office rack re-wiring work,"
     },
     {
-      "col1": "TR DIV",
-      "col2": "09-10-2025",
-      "col3": "PHONE NOT WORKING"
+      "col1": "Divisional office",
+      "col2": "17-3-2025",
+      "col3": "Senior DSC office renovation, cable laying and termination work"
     },
     {
-      "col1": "GDR",
-      "col2": "11-12-2025",
-      "col3": "TESTING"
+      "col1": "Divisional office",
+      "col2": "18-7-2025",
+      "col3": "ADRM OP Wi-Fi router, power socket issue, ADRM OP steno casing caping work"
     },
     {
-      "col1": "GDV",
-      "col2": "10.09.2025",
-      "col3": "NET ISSUE"
+      "col1": "Divisional office",
+      "col2": "10-09-2025",
+      "col3": "TRD office renovation works"
+    },
+    {
+      "col1": "Railway station, ELS, &  VNC",
+      "col2": "19-5-2025",
+      "col3": "ELS exchange inside Tiles arrangement work and cable protecting work"
+    },
+    {
+      "col1": "Railway station, ELS, &  VNC",
+      "col2": "03-06-2025",
+      "col3": "PPO/ELS Office wiring work to be done, TV to be placed."
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ]
 }
