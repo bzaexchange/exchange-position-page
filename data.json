@@ -2,38 +2,43 @@
   "officers": [
     {
       "col1": "DRM",
-      "col2": "Mohit Sonkiya",
-      "col3": "HQ"
+      "col2": "Sri.Mohit Sonkiya",
+      "col3": "BZA-NDD R/W INSPECTION"
     },
     {
       "col1": "ADRM INFRA",
-      "col2": "P.E.Edwin",
+      "col2": " Sri.P.E.Edwin       ",
       "col3": "HQ"
     },
     {
-      "col1": "ADRM OP",
-      "col2": "K.Srinivas Rao",
+      "col1": "ADRM OP      ",
+      "col2": "  Sri.K.Srinivas Rao",
       "col3": "HQ"
     },
     {
-      "col1": "DSTE",
-      "col2": "A.Srinivasulu",
-      "col3": "KAVACH TRAINING, IRISET/SC UPTO 17-10-25"
+      "col1": "SR.DSTE      ",
+      "col2": "      Sri.P.Satish Shankar ",
+      "col3": "ACCOMP. WITH DRM"
     },
     {
-      "col1": "ADSTE",
-      "col2": "V. Brahmaji Rao",
+      "col1": "DSTE           ",
+      "col2": "Sri.A.Srinivasulu  ",
+      "col3": "KAVACHI TRAINING UPTO 17-10-25"
+    },
+    {
+      "col1": "ADSTE        ",
+      "col2": " Sri.V.Brahmaji Rao",
+      "col3": "NSI/HQ"
+    },
+    {
+      "col1": "SSE/T/EXCH",
+      "col2": "        Sri.V.V.S.Aditya Kumar",
       "col3": "HQ"
     },
     {
-      "col1": "SSE/T/EXCH ",
-      "col2": "V.V.S.Aditya kumarr",
+      "col1": "JE/T/EXCH   ",
+      "col2": "   Smt.K.Raja Rajitha ",
       "col3": "HQ"
-    },
-    {
-      "col1": "JE/T/EXCH",
-      "col2": "K.Raja Rajitha",
-      "col3": "LEAVE"
     },
     {
       "col1": "",
@@ -146,6 +151,16 @@
       "col1": "General works ",
       "col2": "04-10-25",
       "col3": "Maple (Rack 3 in MIS room) wiring work"
+    },
+    {
+      "col1": "GTL PRI indications",
+      "col2": "09-10-25",
+      "col3": "Local loop OK. Informed to NMS."
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     },
     {
       "col1": "",
