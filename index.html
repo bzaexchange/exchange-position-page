@@ -1,101 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Exchange Position Page</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exchange Daily position - Admin</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <style>
-  body { font-family: 'Inter', sans-serif; margin: 0; background: #f7f8fa; color: #222; }
-  header { text-align: center; background: #0056b3; color: #fff; padding: 1rem; }
-  main { max-width: 900px; margin: 2rem auto; background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-  h2 { color: #0056b3; margin-top: 1.5rem; }
-  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-  th, td { border: 1px solid #ccc; padding: 0.75rem; text-align: left; }
-  th { background: #e9f1ff; font-weight: 600; }
-  tr:hover { background: #f1f8ff; }
-  .no-data { color: #666; font-style: italic; text-align: center; padding: 1rem; }
-  footer { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #555; }
-  .btn-link { display: inline-block; background: #007bff; color: white; padding: 8px 12px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-  .btn-link:hover { background: #0056b3; }
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  h1 { text-align: center; font-size: 2em; margin-bottom: 5px; }
+  #date { text-align: center; color: #555; margin-bottom: 20px; }
+  .toolbar { text-align: center; margin-bottom: 20px; }
+  button {
+    background-color: #2563eb; color: white; border: none;
+    padding: 10px 16px; margin: 5px; border-radius: 6px;
+    cursor: pointer; font-size: 14px;
+  }
+  button:hover { background-color: #1d4ed8; }
+  .card {
+    background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 10px; padding: 20px; margin-bottom: 25px;
+  }
+  .card h2 { margin-top: 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+  th { background-color: #f1f5f9; }
+  input, textarea { width: 100%; border: none; outline: none; padding: 5px; font-size: 14px; }
+  .delete-btn { background-color: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+  .delete-btn:hover { background-color: #dc2626; }
+  .footer-actions { text-align: center; margin-top: 10px; }
+  .clear-btn { background-color: #6b7280; }
+  .clear-btn:hover { background-color: #4b5563; }
 </style>
 </head>
 <body>
-  <header>
-    <h1>Exchange Position Page</h1>
-    <div id="currentDate"></div>
-  </header>
 
-  <main>
-    <section>
-      <h2>Officers</h2>
-      <table id="officersTable">
-        <thead>
-          <tr><th>Name</th><th>Position</th><th>Movement</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <a href="update.html" class="btn-link">Update Officers / Failures</a>
-    </section>
+<h1>Exchange Daily position (Admin Panel)</h1>
+<div id="date"></div>
 
-    <section>
-      <h2>Pending Failures</h2>
-      <table id="failuresTable">
-        <thead>
-          <tr><th>Date Created</th><th>Description of Failure/Issue</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  </main>
+<div class="toolbar">
+  <button id="downloadExcel"><i class="ri-file-excel-2-line"></i> Download Day Position (Excel)</button>
+  <button id="clearData" class="clear-btn"><i class="ri-refresh-line"></i> Clear saved data</button>
+  <button onclick="window.location.href='view.html'"><i class="ri-eye-line"></i> View Public Page</button>
+</div>
 
-  <footer>
-    Last data load: <span id="lastLoad"></span>
-  </footer>
+<div class="card">
+  <h2>Officers movements</h2>
+  <table id="officersTable">
+    <thead>
+      <tr>
+        <th>Designation</th>
+        <th>Name</th>
+        <th>Movement</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input placeholder="Enter Designation"></td>
+        <td><input placeholder="Enter Name"></td>
+        <td><input placeholder="Enter Movement"></td>
+        <td><button class="delete-btn">🗑</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer-actions">
+    <button id="addOfficer"><i class="ri-add-line"></i> Add row</button>
+  </div>
+</div>
 
-  <script>
-    // Show current date
-    const now = new Date();
-    document.getElementById("currentDate").textContent =
-      now.toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+<div class="card">
+  <h2>Pending failures / To do works</h2>
+  <table id="failuresTable">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Date from pending</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input placeholder="Enter Section"></td>
+        <td><input type="date"></td>
+        <td><textarea rows="1" placeholder="Enter Description"></textarea></td>
+        <td><button class="delete-btn">🗑</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer-actions">
+    <button id="addFailure"><i class="ri-add-line"></i> Add row</button>
+  </div>
+</div>
 
-    async function loadData() {
-      try {
-        const response = await fetch('data.json?nocache=' + Date.now()); // prevents cache
-        const data = await response.json();
-        renderTables(data);
-        document.getElementById("lastLoad").textContent = new Date().toLocaleString();
-      } catch (err) {
-        console.error("Error loading data.json:", err);
-        document.querySelector("main").innerHTML = "<p style='text-align:center;color:red;'>Error loading data.json</p>";
-      }
-    }
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+const dateElem=document.getElementById("date");
+dateElem.textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-    function renderTables(data) {
-      const officerBody = document.querySelector("#officersTable tbody");
-      const failureBody = document.querySelector("#failuresTable tbody");
-      officerBody.innerHTML = "";
-      failureBody.innerHTML = "";
+function addRow(tableId,isFailure=false){
+ const t=document.querySelector(`#${tableId} tbody`);
+ const row=document.createElement("tr");
+ row.innerHTML=isFailure?
+ `<td><input placeholder="Enter Section"></td>
+  <td><input type="date"></td>
+  <td><textarea rows="1" placeholder="Enter Description"></textarea></td>
+  <td><button class='delete-btn'>🗑</button></td>`:
+ `<td><input placeholder="Enter Designation"></td>
+  <td><input placeholder="Enter Name"></td>
+  <td><input placeholder="Enter Movement"></td>
+  <td><button class='delete-btn'>🗑</button></td>`;
+ t.appendChild(row);
+}
 
-      if (!data.officers || data.officers.length === 0) {
-        officerBody.innerHTML = '<tr><td colspan="3" class="no-data">No officers found</td></tr>';
-      } else {
-        data.officers.forEach(o => {
-          officerBody.innerHTML += `<tr><td>${o.name}</td><td>${o.position}</td><td>${o.movement || '-'}</td></tr>`;
-        });
-      }
+document.addEventListener("click",e=>{
+ if(e.target.classList.contains("delete-btn")){e.target.closest("tr").remove();saveData();}
+});
+document.getElementById("addOfficer").onclick=()=>{addRow("officersTable");saveData();};
+document.getElementById("addFailure").onclick=()=>{addRow("failuresTable",true);saveData();};
 
-      if (!data.failures || data.failures.length === 0) {
-        failureBody.innerHTML = '<tr><td colspan="2" class="no-data">No pending failures</td></tr>';
-      } else {
-        data.failures.forEach(f => {
-          const date = new Date(f.date).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
-          failureBody.innerHTML += `<tr><td>${date}</td><td>${f.description}</td></tr>`;
-        });
-      }
-    }
+function getTableData(id){
+ return [...document.querySelectorAll(`#${id} tbody tr`)].map(tr=>
+   [...tr.querySelectorAll("input,textarea")].map(i=>i.value));
+}
+function saveData(){
+ localStorage.setItem("exchangeDailyPosition",JSON.stringify({
+   officers:getTableData("officersTable"),failures:getTableData("failuresTable")
+ }));
+}
+function loadData(){
+ const s=localStorage.getItem("exchangeDailyPosition");if(!s)return;
+ const d=JSON.parse(s);
+ fillTable("officersTable",d.officers,false);
+ fillTable("failuresTable",d.failures,true);
+}
+function fillTable(id,data,isFailure){
+ const t=document.querySelector(`#${id} tbody`);
+ t.innerHTML="";
+ data.forEach(r=>{
+  const row=document.createElement("tr");
+  row.innerHTML=isFailure?
+  `<td><input value="${r[0]||''}"><td><input type='date' value='${r[1]||''}'></td><td><textarea>${r[2]||''}</textarea></td><td><button class='delete-btn'>🗑</button></td>`:
+  `<td><input value="${r[0]||''}"><td><input value="${r[1]||''}"><td><input value="${r[2]||''}"></td><td><button class='delete-btn'>🗑</button></td>`;
+  t.appendChild(row);
+ });
+}
+document.addEventListener("input",e=>{if(["INPUT","TEXTAREA"].includes(e.target.tagName))saveData();});
+document.getElementById("clearData").onclick=()=>{if(confirm("Clear all saved data?")){localStorage.removeItem("exchangeDailyPosition");location.reload();}};
 
-    loadData();
-  </script>
+document.getElementById("downloadExcel").onclick=()=>{
+ const wb=XLSX.utils.book_new();
+ const o=[["Designation","Name","Movement"],...getTableData("officersTable")];
+ const f=[["Section","Date from pending","Description"],...getTableData("failuresTable")];
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(o),"Officers movements");
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(f),"Pending failures");
+ XLSX.writeFile(wb,`Exchange_Daily_Position_${new Date().toISOString().split('T')[0]}.xlsx`);
+};
+loadData();
+</script>
 </body>
 </html>
