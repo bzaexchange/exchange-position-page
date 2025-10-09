@@ -3,102 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exchange Daily position</title>
+<title>Exchange Daily Position</title>
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
 <style>
+  :root {
+    --primary: #2563eb;
+    --secondary: #f8fafc;
+    --text: #1e293b;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8fafc;
-    color: #333;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    background: var(--secondary);
+    color: var(--text);
   }
-  h1 { text-align: center; margin-bottom: 5px; }
-  #date { text-align: center; color: #555; margin-bottom: 20px; }
+
+  header {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 25px 10px 15px;
+    box-shadow: 0 2px 6px var(--shadow);
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.9em;
+    font-weight: 600;
+  }
+
+  #date {
+    font-size: 1rem;
+    color: #e0e7ff;
+    margin-top: 6px;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0 5px;
+    flex-wrap: wrap;
+  }
+
+  .toolbar button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    box-shadow: 0 2px 6px var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .toolbar button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 10px auto 40px;
+    padding: 0 20px;
+  }
+
   .card {
-    background: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 25px;
+    background: var(--card-bg);
+    box-shadow: 0 3px 10px var(--shadow);
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 35px;
+    transition: transform 0.2s ease;
   }
+
+  .card:hover {
+    transform: translateY(-3px);
+  }
+
   .card h2 {
-    margin-top: 0;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 10px;
+    font-size: 1.3em;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-  th { background-color: #f1f5f9; }
-  .empty { text-align: center; color: #888; padding: 15px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.95em;
+  }
+
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f9fafb;
+  }
+
+  tr:hover td {
+    background-color: #eef2ff;
+  }
+
+  .empty {
+    text-align: center;
+    color: #888;
+    padding: 15px;
+    font-style: italic;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #6b7280;
+    padding: 15px 0 25px;
+  }
+
+  @media (max-width: 768px) {
+    table, th, td {
+      font-size: 0.9em;
+    }
+    header h1 {
+      font-size: 1.5em;
+    }
+    .toolbar button {
+      font-size: 0.9em;
+      padding: 8px 14px;
+    }
+  }
 </style>
 </head>
 <body>
 
-<h1>Exchange Daily position</h1>
-<div id="date"></div>
+<header>
+  <h1>Exchange Daily Position</h1>
+  <div id="date"></div>
+</header>
 
-<div class="card">
-  <h2>Officers movements</h2>
-  <table id="officersTable">
-    <thead>
-      <tr>
-        <th>Designation</th>
-        <th>Name</th>
-        <th>Movement</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <div id="noOfficers" class="empty">No officer data available</div>
+<div class="toolbar">
+  <button id="downloadExcel"><i class="ri-download-2-line"></i> Download Day Position (Excel)</button>
 </div>
 
-<div class="card">
-  <h2>Pending failures / To do works</h2>
-  <table id="failuresTable">
-    <thead>
-      <tr>
-        <th>Section</th>
-        <th>Date from pending</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <div id="noFailures" class="empty">No pending failures entered</div>
-</div>
+<main>
+  <div class="card">
+    <h2><i class="ri-user-location-line"></i> Officers Movements</h2>
+    <table id="officersTable">
+      <thead>
+        <tr>
+          <th>Designation</th>
+          <th>Name</th>
+          <th>Movement</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="noOfficers" class="empty">No officer movement data available.</div>
+  </div>
+
+  <div class="card">
+    <h2><i class="ri-alert-line"></i> Pending Failures / To-Do Works</h2>
+    <table id="failuresTable">
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th>Date From Pending</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="noFailures" class="empty">No pending failures recorded.</div>
+  </div>
+</main>
+
+<footer>
+  © 2025 Exchange Daily Position | Indian Railways Monitoring Dashboard
+</footer>
 
 <script>
 document.getElementById("date").textContent =
   new Date().toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
 
 function loadData(){
- const saved = localStorage.getItem("exchangeDailyPosition");
- if(!saved){ return; }
- const data = JSON.parse(saved);
- fillTable("officersTable", data.officers, "noOfficers");
- fillTable("failuresTable", data.failures, "noFailures");
+  const saved = localStorage.getItem("exchangeDailyPosition");
+  if(!saved) return;
+  const data = JSON.parse(saved);
+  fillTable("officersTable", data.officers, "noOfficers");
+  fillTable("failuresTable", data.failures, "noFailures");
 }
 
 function fillTable(id, rows, emptyId){
- const tbody = document.querySelector(`#${id} tbody`);
- const emptyMsg = document.getElementById(emptyId);
- tbody.innerHTML = "";
- if(!rows || rows.length === 0){
-   emptyMsg.style.display = 'block';
-   return;
- }
- emptyMsg.style.display = 'none';
- rows.forEach(r => {
-   const tr = document.createElement("tr");
-   r.forEach(cell => {
-     const td = document.createElement("td");
-     td.textContent = cell || "-";
-     tr.appendChild(td);
-   });
-   tbody.appendChild(tr);
- });
+  const tbody = document.querySelector(`#${id} tbody`);
+  const emptyMsg = document.getElementById(emptyId);
+  tbody.innerHTML = "";
+  if(!rows || rows.length === 0){
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  emptyMsg.style.display = 'none';
+  rows.forEach(r => {
+    const tr = document.createElement("tr");
+    r.forEach(cell => {
+      const td = document.createElement("td");
+      td.textContent = cell || "-";
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
 }
+
+function downloadExcel() {
+  const saved = localStorage.getItem("exchangeDailyPosition");
+  if(!saved) { alert("No data available to export."); return; }
+  const data = JSON.parse(saved);
+  const wb = XLSX.utils.book_new();
+
+  const officersSheet = XLSX.utils.aoa_to_sheet([["Designation","Name","Movement"], ...data.officers]);
+  const failuresSheet = XLSX.utils.aoa_to_sheet([["Section","Date From Pending","Description"], ...data.failures]);
+
+  XLSX.utils.book_append_sheet(wb, officersSheet, "Officers Movements");
+  XLSX.utils.book_append_sheet(wb, failuresSheet, "Pending Failures");
+
+  const today = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, `Exchange_Daily_Position_${today}.xlsx`);
+}
+
+document.getElementById("downloadExcel").addEventListener("click", downloadExcel);
 loadData();
 </script>
 
