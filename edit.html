@@ -8,12 +8,13 @@
 <style>
 body { background: #f3f6fa; font-family: "Inter", sans-serif; }
 header { text-align: center; margin: 2rem 0; }
-.card { border: none; border-radius: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-.table th { background-color: #0d6efd; color: #fff; }
+.card { border: none; border-radius: 1rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+.table th { background-color: #0d6efd; color: white; text-align: center; }
 .table td input { border: none; width: 100%; background: transparent; outline: none; text-align: center; }
 .action-btn { cursor: pointer; color: #dc3545; font-size: 1.2rem; }
 .add-row-btn { margin-top: 0.5rem; }
-footer { text-align: center; color: #777; margin-top: 2rem; font-size: 0.9rem; }
+.btn-lg { border-radius: 0.6rem; }
+footer { text-align: center; margin-top: 2rem; color: #777; font-size: 0.9rem; }
 </style>
 </head>
 <body>
@@ -31,7 +32,7 @@ footer { text-align: center; color: #777; margin-top: 2rem; font-size: 0.9rem; }
   <div class="card p-3">
     <h5 class="text-primary mb-3">Officers Movements</h5>
     <div class="table-responsive">
-      <table class="table text-center align-middle" id="officersTable">
+      <table class="table table-bordered align-middle text-center" id="officersTable">
         <thead><tr><th>Designation</th><th>Name</th><th>Movement</th><th>Action</th></tr></thead>
         <tbody></tbody>
       </table>
@@ -42,7 +43,7 @@ footer { text-align: center; color: #777; margin-top: 2rem; font-size: 0.9rem; }
   <div class="card p-3">
     <h5 class="text-danger mb-3">Pending Failures / To Do Works</h5>
     <div class="table-responsive">
-      <table class="table text-center align-middle" id="failuresTable">
+      <table class="table table-bordered align-middle text-center" id="failuresTable">
         <thead><tr><th>Section</th><th>Date from Pending</th><th>Description</th><th>Action</th></tr></thead>
         <tbody></tbody>
       </table>
@@ -51,7 +52,7 @@ footer { text-align: center; color: #777; margin-top: 2rem; font-size: 0.9rem; }
   </div>
 
   <footer>
-    <p>Connected to <a href="https://github.com/bzaexchange/exchange-position-page" target="_blank">@bzaexchange/exchange-position-page</a></p>
+    <p>Connected to GitHub repo: <a href="https://github.com/bzaexchange/exchange-position-page" target="_blank">@bzaexchange/exchange-position-page</a></p>
   </footer>
 </div>
 
@@ -78,16 +79,16 @@ function fillTable(id, rows) {
   rows.forEach(r => addRow(id, r));
 }
 
-function addRow(id, row = {col1:"",col2:"",col3:""}) {
+function addRow(id, row = {col1:"", col2:"", col3:""}) {
   const tbody = document.querySelector(`#${id} tbody`);
   const tr = document.createElement("tr");
-  for (const key in row) {
+  Object.values(row).forEach(v => {
     const td = document.createElement("td");
     const inp = document.createElement("input");
-    inp.value = row[key];
+    inp.value = v;
     td.appendChild(inp);
     tr.appendChild(td);
-  }
+  });
   const tdAct = document.createElement("td");
   tdAct.innerHTML = '<span class="action-btn" title="Delete Row">🗑️</span>';
   tdAct.onclick = () => tr.remove();
@@ -100,35 +101,9 @@ document.getElementById("addFailure").onclick = () => addRow("failuresTable");
 
 document.getElementById("downloadExcel").onclick = () => {
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, tableToSheet("officersTable"), "Officers Movements");
-  XLSX.utils.book_append_sheet(wb, tableToSheet("failuresTable"), "Pending Failures");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.table_to_sheet(document.getElementById("officersTable")), "Officers Movements");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.table_to_sheet(document.getElementById("failuresTable")), "Pending Failures");
   XLSX.writeFile(wb, `Exchange_Daily_Position_${new Date().toISOString().split('T')[0]}.xlsx`);
-};
-
-function tableToSheet(id) {
-  const table = document.getElementById(id);
-  return XLSX.utils.table_to_sheet(table);
-}
-
-document.getElementById("saveGitHub").onclick = async () => {
-  const officers = extractTable("officersTable");
-  const failures = extractTable("failuresTable");
-  const data = { officers, failures };
-  const sha = await getCurrentSha();
-  const body = {
-    message: "Update Exchange Daily Position",
-    content: btoa(JSON.stringify(data, null, 2)),
-    sha
-  };
-  const token = prompt("Enter your GitHub Personal Access Token:");
-  if (!token) return alert("Token required!");
-  const res = await fetch(apiUrl, {
-    method: "PUT",
-    headers: { Authorization: `token ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify(body)
-  });
-  if (res.ok) alert("✅ Data saved successfully to GitHub!");
-  else alert("❌ Failed to save data. Check token and permissions.");
 };
 
 async function getCurrentSha() {
@@ -136,6 +111,31 @@ async function getCurrentSha() {
   const json = await res.json();
   return json.sha;
 }
+
+document.getElementById("saveGitHub").onclick = async () => {
+  const token = prompt("Enter your GitHub Personal Access Token (repo access):");
+  if (!token) return alert("❌ Token required.");
+
+  const officers = extractTable("officersTable");
+  const failures = extractTable("failuresTable");
+  const data = { officers, failures };
+  const sha = await getCurrentSha();
+
+  const body = {
+    message: "Update Exchange Daily Position via edit.html",
+    content: btoa(JSON.stringify(data, null, 2)),
+    sha
+  };
+
+  const res = await fetch(apiUrl, {
+    method: "PUT",
+    headers: { Authorization: `token ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+
+  if (res.ok) alert("✅ Data updated successfully!");
+  else alert("❌ Failed to update. Check your token and repo permissions.");
+};
 
 function extractTable(id) {
   const rows = [];
