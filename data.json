@@ -27,12 +27,12 @@
     },
     {
       "col1": "SSE/T/EXCH & PRS",
-      "col2": "V.V.S.Aitya kumar",
+      "col2": "V.V.S.Aditya kumar",
       "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
-      "col2": "K.Raja rajitha",
+      "col2": "K.Raja Rajitha",
       "col3": "LEAVE"
     },
     {
@@ -63,14 +63,39 @@
       "col3": "TRD office renovation works"
     },
     {
-      "col1": "Railway station, ELS, &  VNC",
-      "col2": "19-5-2025",
+      "col1": "Railway station, ELS & VNC",
+      "col2": "19-05-2025",
       "col3": "ELS exchange inside Tiles arrangement work and cable protecting work"
     },
     {
-      "col1": "Railway station, ELS, &  VNC",
+      "col1": "Railway station, ELS & VNC",
       "col2": "03-06-2025",
       "col3": "PPO/ELS Office wiring work to be done, TV to be placed."
+    },
+    {
+      "col1": "AIR, STPM, Rly Hospital,South Yard",
+      "col2": "16-07-2025",
+      "col3": "Closing of Open Cable with concrete at railway quarters number 670 at RE- colony 15 meters"
+    },
+    {
+      "col1": "AIR, STPM, Rly Hospital,South Yard",
+      "col2": "10-09-2025",
+      "col3": "STPM (ETTC Cable cut restoration work)"
+    },
+    {
+      "col1": "DLS Projects, Constructions, ORH",
+      "col2": "15-11-24",
+      "col3": "725 quarters, near SIB- LB jointing work"
+    },
+    {
+      "col1": "DLS Projects, Constructions, ORH",
+      "col2": "03-02-24",
+      "col3": "Dy.CSTE/ GS office casing and capping work"
+    },
+    {
+      "col1": "DLS Projects, Constructions, ORH",
+      "col2": "30-05-25",
+      "col3": "\"CSI/M, OFC Cable termination work (Cable laying completed)\""
     },
     {
       "col1": "",
