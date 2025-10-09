@@ -1,265 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exchange Daily Position</title>
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-<script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
-<style>
-  :root {
-    --primary: #2563eb;
-    --secondary: #f8fafc;
-    --text: #1e293b;
-    --border: #e2e8f0;
-    --card-bg: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.08);
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    background: var(--secondary);
-    color: var(--text);
-  }
-
-  header {
-    background: var(--primary);
-    color: #fff;
-    text-align: center;
-    padding: 25px 10px 15px;
-    box-shadow: 0 2px 6px var(--shadow);
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 1.9em;
-    font-weight: 600;
-  }
-
-  #date {
-    font-size: 1rem;
-    color: #e0e7ff;
-    margin-top: 6px;
-  }
-
-  .toolbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin: 20px 0 5px;
-    flex-wrap: wrap;
-  }
-
-  .toolbar button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95em;
-    font-weight: 500;
-    box-shadow: 0 2px 6px var(--shadow);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .toolbar button:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-  }
-
-  main {
-    max-width: 1100px;
-    margin: 10px auto 40px;
-    padding: 0 20px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    box-shadow: 0 3px 10px var(--shadow);
-    border-radius: 12px;
-    padding: 20px 25px;
-    margin-bottom: 35px;
-    transition: transform 0.2s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-3px);
-  }
-
-  .card h2 {
-    font-size: 1.3em;
-    color: var(--primary);
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 0.95em;
-  }
-
-  th, td {
-    border: 1px solid var(--border);
-    padding: 10px;
-    text-align: left;
-  }
-
-  th {
-    background-color: #f1f5f9;
-    font-weight: 600;
-    color: #374151;
-  }
-
-  tr:nth-child(even) td {
-    background-color: #f9fafb;
-  }
-
-  tr:hover td {
-    background-color: #eef2ff;
-  }
-
-  .empty {
-    text-align: center;
-    color: #888;
-    padding: 15px;
-    font-style: italic;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.9em;
-    color: #6b7280;
-    padding: 15px 0 25px;
-  }
-
-  @media (max-width: 768px) {
-    table, th, td {
-      font-size: 0.9em;
-    }
-    header h1 {
-      font-size: 1.5em;
-    }
-    .toolbar button {
-      font-size: 0.9em;
-      padding: 8px 14px;
-    }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exchange Daily Position</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.19.3/xlsx.full.min.js"></script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-6xl mx-auto p-6">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl font-bold mb-2">Exchange Daily Position</h1>
+      <p id="current-date" class="text-gray-600"></p>
+    </header>
 
-<header>
-  <h1>Exchange Daily Position</h1>
-  <div id="date"></div>
-</header>
+    <!-- Officers Movements -->
+    <section class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+        <span class="text-blue-600">📋</span> Officers Movements
+      </h2>
+      <div class="overflow-x-auto">
+        <table id="officersTable" class="min-w-full border border-gray-300 rounded-lg">
+          <thead class="bg-blue-100">
+            <tr>
+              <th class="px-4 py-2 border">Designation</th>
+              <th class="px-4 py-2 border">Name</th>
+              <th class="px-4 py-2 border">Movement</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
 
-<div class="toolbar">
-  <button id="downloadExcel"><i class="ri-download-2-line"></i> Download Day Position (Excel)</button>
-</div>
+    <!-- Pending Failures -->
+    <section class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+        <span class="text-red-600">⚠️</span> Pending Failures / To Do Works
+      </h2>
+      <div class="overflow-x-auto">
+        <table id="failuresTable" class="min-w-full border border-gray-300 rounded-lg">
+          <thead class="bg-red-100">
+            <tr>
+              <th class="px-4 py-2 border">Section</th>
+              <th class="px-4 py-2 border">Date from pending</th>
+              <th class="px-4 py-2 border">Description</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
 
-<main>
-  <div class="card">
-    <h2><i class="ri-user-location-line"></i> Officers Movements</h2>
-    <table id="officersTable">
-      <thead>
-        <tr>
-          <th>Designation</th>
-          <th>Name</th>
-          <th>Movement</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <div id="noOfficers" class="empty">No officer movement data available.</div>
+    <!-- Actions -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+      <button id="downloadExcel"
+        class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium shadow-md transition">
+        ⬇️ Download Day Position (Excel)
+      </button>
+    </div>
   </div>
 
-  <div class="card">
-    <h2><i class="ri-alert-line"></i> Pending Failures / To-Do Works</h2>
-    <table id="failuresTable">
-      <thead>
-        <tr>
-          <th>Section</th>
-          <th>Date From Pending</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <div id="noFailures" class="empty">No pending failures recorded.</div>
-  </div>
-</main>
-
-<footer>
-  © 2025 Exchange Daily Position | Indian Railways Monitoring Dashboard
-</footer>
-
-<script>
-document.getElementById("date").textContent =
-  new Date().toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-
-function loadData(){
-  const saved = localStorage.getItem("exchangeDailyPosition");
-  if(!saved) return;
-  const data = JSON.parse(saved);
-  fillTable("officersTable", data.officers, "noOfficers");
-  fillTable("failuresTable", data.failures, "noFailures");
-}
-
-function fillTable(id, rows, emptyId){
-  const tbody = document.querySelector(`#${id} tbody`);
-  const emptyMsg = document.getElementById(emptyId);
-  tbody.innerHTML = "";
-  if(!rows || rows.length === 0){
-    emptyMsg.style.display = 'block';
-    return;
-  }
-  emptyMsg.style.display = 'none';
-  rows.forEach(r => {
-    const tr = document.createElement("tr");
-    r.forEach(cell => {
-      const td = document.createElement("td");
-      td.textContent = cell || "-";
-      tr.appendChild(td);
+  <script>
+    // Display current date
+    document.getElementById("current-date").textContent = new Date().toLocaleDateString('en-IN', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
     });
-    tbody.appendChild(tr);
-  });
-}
 
-function downloadExcel() {
-  const saved = localStorage.getItem("exchangeDailyPosition");
-  if(!saved) { alert("No data available to export."); return; }
-  const data = JSON.parse(saved);
-  const wb = XLSX.utils.book_new();
+    // Load data from localStorage
+    const officers = JSON.parse(localStorage.getItem('officersData') || '[]');
+    const failures = JSON.parse(localStorage.getItem('failuresData') || '[]');
 
-  const officersSheet = XLSX.utils.aoa_to_sheet([["Designation","Name","Movement"], ...data.officers]);
-  const failuresSheet = XLSX.utils.aoa_to_sheet([["Section","Date From Pending","Description"], ...data.failures]);
+    function populateTable(tableId, data, keys) {
+      const tbody = document.querySelector(`#${tableId} tbody`);
+      tbody.innerHTML = '';
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        keys.forEach(k => {
+          const td = document.createElement('td');
+          td.className = "border px-4 py-2";
+          td.textContent = row[k] || '';
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
 
-  XLSX.utils.book_append_sheet(wb, officersSheet, "Officers Movements");
-  XLSX.utils.book_append_sheet(wb, failuresSheet, "Pending Failures");
+    populateTable('officersTable', officers, ['designation', 'name', 'movement']);
+    populateTable('failuresTable', failures, ['section', 'date', 'description']);
 
-  const today = new Date().toISOString().slice(0,10);
-  XLSX.writeFile(wb, `Exchange_Daily_Position_${today}.xlsx`);
-}
-
-document.getElementById("downloadExcel").addEventListener("click", downloadExcel);
-loadData();
-</script>
-
+    // Download Excel
+    document.getElementById('downloadExcel').addEventListener('click', () => {
+      const wb = XLSX.utils.book_new();
+      const ws1 = XLSX.utils.json_to_sheet(officers);
+      const ws2 = XLSX.utils.json_to_sheet(failures);
+      XLSX.utils.book_append_sheet(wb, ws1, 'Officers Movements');
+      XLSX.utils.book_append_sheet(wb, ws2, 'Pending Failures');
+      const filename = `Exchange_Daily_Position_${new Date().toISOString().slice(0,10)}.xlsx`;
+      XLSX.writeFile(wb, filename);
+    });
+  </script>
 </body>
 </html>
