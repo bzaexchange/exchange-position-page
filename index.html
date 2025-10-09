@@ -5,46 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exchange Daily Position</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
-body { background: #f8fafc; font-family: "Inter", sans-serif; }
-header { text-align: center; margin: 2rem 0; }
-.card { border: none; border-radius: 1rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-.card h5 { font-weight: 600; }
-.table th { background: #0d6efd; color: #fff; text-align: center; }
-.table td, .table th { vertical-align: middle; text-align: center; }
-.btn-excel { font-size: 1.1rem; padding: 10px 20px; border-radius: 0.6rem; }
-footer { text-align: center; color: #777; font-size: 0.9rem; margin-top: 2rem; }
+body {
+  background: linear-gradient(135deg, #f9fbff, #eef3f9);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #222;
+}
+
+header {
+  text-align: center;
+  margin: 2.5rem 0;
+}
+
+header h1 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #0d6efd;
+}
+
+header p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 0.4rem;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card h5 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card h5.text-primary::before {
+  content: "👨‍💼";
+}
+
+.card h5.text-danger::before {
+  content: "⚠️";
+}
+
+.table {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.table th {
+  background: #0d6efd;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+  background: #ffffff;
+  transition: background 0.2s;
+}
+
+.table tbody tr:hover td {
+  background: #f1f6ff;
+}
+
+.btn-excel {
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border-radius: 0.7rem;
+  background: linear-gradient(90deg, #198754, #28a745);
+  border: none;
+  transition: all 0.2s ease;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-excel:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #28a745, #34c759);
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+.table-responsive {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  header h1 { font-size: 1.6rem; }
+  .btn-excel { width: 100%; }
+}
 </style>
 </head>
+
 <body>
 <div class="container my-4">
   <header>
-    <h1 class="fw-bold">Exchange Daily Position</h1>
-    <p id="currentDate" class="text-secondary"></p>
+    <h1>Exchange Daily Position</h1>
+    <p id="currentDate"></p>
   </header>
 
-  <div class="card p-4">
-    <h5 class="text-primary mb-3">Officers Movements</h5>
+  <div class="card p-4 mb-4">
+    <h5 class="text-primary">Officers Movements</h5>
     <div class="table-responsive">
-      <table class="table table-bordered" id="officersTable">
-        <thead><tr><th>Designation</th><th>Name</th><th>Movement</th></tr></thead>
+      <table class="table table-bordered align-middle" id="officersTable">
+        <thead class="table-primary">
+          <tr><th>Designation</th><th>Name</th><th>Movement</th></tr>
+        </thead>
         <tbody></tbody>
       </table>
     </div>
   </div>
 
-  <div class="card p-4">
-    <h5 class="text-danger mb-3">Pending Failures / To Do Works</h5>
+  <div class="card p-4 mb-4">
+    <h5 class="text-danger">Pending Failures / To Do Works</h5>
     <div class="table-responsive">
-      <table class="table table-bordered" id="failuresTable">
-        <thead><tr><th>Section</th><th>Date from Pending</th><th>Description</th></tr></thead>
+      <table class="table table-bordered align-middle" id="failuresTable">
+        <thead class="table-danger">
+          <tr><th>Section</th><th>Date from Pending</th><th>Description</th></tr>
+        </thead>
         <tbody></tbody>
       </table>
     </div>
   </div>
 
   <div class="text-center">
-    <button id="downloadExcel" class="btn btn-success btn-excel shadow">📊 Download Day Position (Excel)</button>
+    <button id="downloadExcel" class="btn btn-excel shadow">📊 Download Day Position (Excel)</button>
   </div>
 
   <footer class="mt-4">
@@ -59,7 +171,9 @@ const repo = "exchange-position-page";
 const filePath = "data.json";
 const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
 
-document.getElementById("currentDate").textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+document.getElementById("currentDate").textContent = new Date().toLocaleDateString('en-IN', {
+  weekday:'long', year:'numeric', month:'long', day:'numeric'
+});
 
 async function loadData() {
   try {
