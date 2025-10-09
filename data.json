@@ -17,8 +17,23 @@
     },
     {
       "col1": "DSTE",
-      "col2": "DSTE",
+      "col2": "A SRINIVASULU",
       "col3": "HQ"
+    },
+    {
+      "col1": "ADSTE",
+      "col2": "V BRAHMAJI RAO",
+      "col3": "HQ"
+    },
+    {
+      "col1": "SSE/T/EXCH & PRS",
+      "col2": "V.V.S.ADITYA KUMAR",
+      "col3": "HQ"
+    },
+    {
+      "col1": "JE/T/EXCH",
+      "col2": "RAJA RAJITHA",
+      "col3": "LEAVE"
     }
   ],
   "failures": [
@@ -36,6 +51,11 @@
       "col1": "GDR",
       "col2": "11-12-2025",
       "col3": "TESTING"
+    },
+    {
+      "col1": "GDV",
+      "col2": "10.09.2025",
+      "col3": "NET ISSUE"
     }
   ]
 }
