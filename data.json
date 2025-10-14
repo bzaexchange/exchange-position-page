@@ -53,39 +53,9 @@
   ],
   "failures": [
     {
-      "col1": "Divisional office",
-      "col2": "17-3-2025",
-      "col3": "Senior DSC office renovation, cable laying and termination work"
-    },
-    {
-      "col1": "Divisional office",
-      "col2": "18-7-2025",
-      "col3": "ADRM OP Wi-Fi router, power socket issue, ADRM OP steno casing caping work"
-    },
-    {
-      "col1": "Divisional office",
-      "col2": "10-09-2025",
-      "col3": "TRD office renovation works"
-    },
-    {
-      "col1": "Railway station, ELS & VNC",
-      "col2": "19-05-2025",
-      "col3": "ELS exchange inside Tiles arrangement work and cable protecting work"
-    },
-    {
-      "col1": "Railway station, ELS & VNC",
-      "col2": "03-06-2025",
-      "col3": "PPO/ELS Office wiring work to be done, TV to be placed."
-    },
-    {
-      "col1": "AIR, STPM, Rly Hospital,South Yard",
-      "col2": "16-07-2025",
-      "col3": "Closing of Open Cable with concrete at railway quarters number 670 at RE- colony 15 meters"
-    },
-    {
-      "col1": "AIR, STPM, Rly Hospital,South Yard",
-      "col2": "10-09-2025",
-      "col3": "STPM (ETTC Cable cut restoration work)"
+      "col1": "DLS, Projects, Constructions, ORH",
+      "col2": "16-09-2025",
+      "col3": "IOH/DLS 67931 cable cut inside termination pending "
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
@@ -94,18 +64,13 @@
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
-      "col2": "03-02-25",
-      "col3": "Dy.CSTE/ GS office casing and capping work"
-    },
-    {
-      "col1": "DLS, Projects, Constructions, ORH",
       "col2": "30-05-25",
       "col3": "\"CSI/M, OFC Cable termination work (Cable laying completed)\""
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
-      "col2": "16-09-2025",
-      "col3": "IOH/DLS 67931 cable cut inside termination pending "
+      "col2": "26-09-25",
+      "col3": "Wireless Office-Wiring work pending"
     },
     {
       "col1": "Yard works",
@@ -148,14 +113,29 @@
       "col3": "Maple (Rack 3 in MIS room) wiring work"
     },
     {
-      "col1": "DLS, Projects, Constructions, ORH",
-      "col2": "26-09-25",
-      "col3": "Wireless Office-Wiring work pending"
+      "col1": "AIR, STPM, Rly Hospital,South Yard",
+      "col2": "10-09-2025",
+      "col3": "STPM (ETTC Cable cut restoration work)"
     },
     {
       "col1": "Divisional office",
       "col2": "08-09-25",
       "col3": "RPF IN GATE TO OUT GATE CABLE PERMANENT RESTORATION"
+    },
+    {
+      "col1": "Divisional office",
+      "col2": "17-3-2025",
+      "col3": "Senior DSC office renovation, cable laying and termination work"
+    },
+    {
+      "col1": "Divisional office",
+      "col2": "18-7-2025",
+      "col3": "ADRM OP Wi-Fi router, power socket issue, ADRM OP steno casing caping work"
+    },
+    {
+      "col1": "Divisional office",
+      "col2": "10-09-2025",
+      "col3": "TRD office renovation works"
     },
     {
       "col1": "ADEN TM NET",
