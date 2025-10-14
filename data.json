@@ -2,53 +2,43 @@
   "officers": [
     {
       "col1": "DRM",
-      "col2": "Sri.Mohit Sonkiya",
+      "col2": "Shri.Mohit Sonkiya",
       "col3": "HQ"
     },
     {
       "col1": "ADRM INFRA",
-      "col2": " Sri.P.E.Edwin       ",
+      "col2": " Shri.P.E.Edwin       ",
       "col3": "HQ"
     },
     {
       "col1": "ADRM OP      ",
-      "col2": "  Sri.K.Srinivas Rao",
+      "col2": "  Shri.K.Srinivas Rao",
       "col3": "HQ"
     },
     {
       "col1": "SR.DSTE      ",
-      "col2": "      Sri.P.Satish Shankar ",
+      "col2": "      Shri.P.Satish Shankar ",
       "col3": "HQ"
     },
     {
       "col1": "DSTE           ",
-      "col2": "Sri.A.Srinivasulu  ",
+      "col2": "Shri.A.Srinivasulu  ",
       "col3": "KAVACHI TRAINING UPTO 17-10-25"
     },
     {
       "col1": "ADSTE        ",
-      "col2": " Sri.V.Brahmaji Rao",
+      "col2": " Shri.V.Brahmaji Rao",
       "col3": "RRI/BZA /HQ"
     },
     {
       "col1": "SSE/T/EXCH",
-      "col2": "        Sri.V.V.S.Aditya Kumar",
+      "col2": "        Shri.V.V.S.Aditya Kumar",
       "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH   ",
       "col2": "   Smt.K.Raja Rajitha ",
       "col3": "HQ"
-    },
-    {
-      "col1": "",
-      "col2": "",
-      "col3": ""
-    },
-    {
-      "col1": "",
-      "col2": "",
-      "col3": ""
     }
   ],
   "failures": [
@@ -151,6 +141,11 @@
       "col1": "SIREN ROOM/DLS",
       "col2": "13-10-25",
       "col3": "LE, RAILNET NOT WORKING"
+    },
+    {
+      "col1": "DLS",
+      "col2": "14-10-25",
+      "col3": "CAMERA WORK"
     }
   ]
 }
