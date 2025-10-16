@@ -28,7 +28,7 @@
     {
       "col1": "ADSTE        ",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "RRI/SOUTH/HQ"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -38,7 +38,7 @@
     {
       "col1": "JE/T/EXCH   ",
       "col2": "   Smt.K.Raja Rajitha ",
-      "col3": "REST"
+      "col3": "HQ"
     }
   ],
   "failures": [
@@ -136,6 +136,11 @@
       "col1": "DLS",
       "col2": "14-10-25",
       "col3": "CAMERA WORK"
+    },
+    {
+      "col1": "COMMERCIAL/OFFICE",
+      "col2": "15-10-25",
+      "col3": "CEI/STORES NET"
     }
   ]
 }
