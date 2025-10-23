@@ -59,10 +59,13 @@ header p {
   content: "⚠️";
 }
 
+/* TABLE STYLING */
 .table {
   border-radius: 0.5rem;
   overflow: hidden;
   background: #fff;
+  table-layout: auto;
+  width: 100%;
 }
 
 .table th {
@@ -71,6 +74,8 @@ header p {
   text-align: center;
   font-weight: 600;
   vertical-align: middle;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .table td {
@@ -78,6 +83,10 @@ header p {
   text-align: center;
   background: #ffffff;
   transition: background 0.2s;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .table tbody tr:hover td {
@@ -114,12 +123,19 @@ footer p {
 
 .table-responsive {
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
+/* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
   header h1 { font-size: 1.6rem; }
   .btn-excel { width: 100%; }
+  table { font-size: 0.85rem; }
+  .table th, .table td {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
 }
 </style>
 </head>
