@@ -3,7 +3,7 @@
     {
       "col1": "DRM",
       "col2": "Shri.Mohit Sonkiya",
-      "col3": "HQ"
+      "col3": "CCT"
     },
     {
       "col1": "ADRM INFRA",
@@ -23,12 +23,12 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "KVM/SIT"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "D Cabin/HQ"
+      "col3": "Night at Test Room/KI"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -38,7 +38,7 @@
     {
       "col1": "JE/T/EXCH   ",
       "col2": "   Smt.K.Raja Rajitha ",
-      "col3": "REST"
+      "col3": "HQ"
     }
   ],
   "failures": [
@@ -136,6 +136,11 @@
       "col1": "AMM STORES/ELS",
       "col2": "21-10-25",
       "col3": "AMM STORES/ELS WARD-2, NET, OFC 4F CABLE CUT"
+    },
+    {
+      "col1": "RH STPM",
+      "col2": "23-10-25",
+      "col3": "NET  NOT WKG"
     }
   ]
 }
