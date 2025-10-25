@@ -118,24 +118,14 @@
       "col3": "TRD office renovation works"
     },
     {
-      "col1": "DLS",
-      "col2": "14-10-25",
-      "col3": "CAMERA WORK"
-    },
-    {
-      "col1": "AMM STORES/ELS",
-      "col2": "21-10-25",
-      "col3": "AMM STORES/ELS WARD-2, NET, OFC 4F CABLE CUT"
-    },
-    {
-      "col1": "BZA-TPC/S  TO  SC - HOTLINE",
-      "col2": "22-10-25",
-      "col3": "BZA-TPC/S ( 68938 )  TO  SC (88806 )- H/L"
-    },
-    {
       "col1": "Sr DSO office shifting",
       "col2": "24-10-25",
-      "col3": "TPs and Railnet shited temporarily"
+      "col3": "TPs and Railnet shifted temporarily"
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ]
 }
