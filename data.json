@@ -125,17 +125,12 @@
     {
       "col1": "Station",
       "col2": "25-10-25",
-      "col3": "Generator room 67427 Cablr to be laid"
+      "col3": "Generator room 67427 Cable to be laid"
     },
     {
-      "col1": "DSL Shad",
+      "col1": "DSL SHED",
       "col2": "25-10-25",
-      "col3": "Duck pipe laying work"
-    },
-    {
-      "col1": "DSL Coaching depot",
-      "col2": "25-10-25",
-      "col3": "tp 69/17 line loop"
+      "col3": "DUCT PIPE LAYING WORK"
     }
   ]
 }
