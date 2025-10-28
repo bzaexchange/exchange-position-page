@@ -38,7 +38,7 @@
     {
       "col1": "JE/T/EXCH   ",
       "col2": "   Smt.K.Raja Rajitha ",
-      "col3": "HQ"
+      "col3": "REST"
     }
   ],
   "failures": [
@@ -120,17 +120,17 @@
     {
       "col1": "Divisional office",
       "col2": "25-10-25",
-      "col3": "Sr DEN/Central Renovation tp&net to be provided"
+      "col3": "Sr DEN/Central Renovation renovation work completed, tp&net to be provided"
+    },
+    {
+      "col1": "General works ",
+      "col2": "10-10-25",
+      "col3": "All officers rosette fixing to be ensured- Sr DSTE pffice"
     },
     {
       "col1": "D CABIN FXS POWER FAILURE",
       "col2": "27-10-25",
       "col3": "TEMPORARILY GIVEN IN LINES SPIKE"
-    },
-    {
-      "col1": "",
-      "col2": "",
-      "col3": ""
     }
   ]
 }
