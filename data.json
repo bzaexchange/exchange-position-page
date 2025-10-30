@@ -18,17 +18,17 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "GDR / PCSO INSPECTION"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "PAV/SIT"
+      "col3": "PAV"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "NZD/A-insp"
+      "col3": "NZD/HQ"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -38,7 +38,7 @@
     {
       "col1": "JE/T/EXCH   ",
       "col2": "   Smt.K.Raja Rajitha ",
-      "col3": "STPM"
+      "col3": "HQ"
     }
   ],
   "failures": [
@@ -120,17 +120,12 @@
     {
       "col1": "Divisional office",
       "col2": "25-10-25",
-      "col3": "Sr DEN/Central Renovation renovation work completed, tp&net to be provided"
+      "col3": "Sr DEN/Central Renovation  work completed, tp&net to be provided"
     },
     {
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
-    },
-    {
-      "col1": "D CABIN FXS POWER FAILURE",
-      "col2": "27-10-25",
-      "col3": "TEMPORARILY GIVEN IN LINES SPIKE"
     }
   ]
 }
