@@ -36,9 +36,9 @@
       "col3": "HQ"
     },
     {
-      "col1": "JE/T/EXCH   ",
-      "col2": "   Smt.K.Raja Rajitha ",
-      "col3": "HQ"
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ],
   "failures": [
@@ -136,6 +136,11 @@
       "col1": "62517 STORES SECTION/ELS",
       "col2": "31-10-25",
       "col3": "PTP DIAL PAD PROBLEM"
+    },
+    {
+      "col1": "AREA CONTROL FXSs",
+      "col2": "01-11-25",
+      "col3": "SHOWING ALARM IN DUDE"
     }
   ]
 }
