@@ -18,17 +18,17 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "GDR / PCSO INSPECTION"
+      "col3": "HQ"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "PAV"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "NZD/HQ"
+      "col3": "PERMISSION"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -126,6 +126,16 @@
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
+    },
+    {
+      "col1": "SSE/BRIDGES",
+      "col2": "31-10-25",
+      "col3": "NEW NET CONNECTION TO BE PROVIDED"
+    },
+    {
+      "col1": "62517 STORES SECTION/ELS",
+      "col2": "31-10-25",
+      "col3": "PTP DIAL PAD PROBLEM"
     }
   ]
 }
