@@ -28,17 +28,17 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "PERMISSION"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "REST"
     },
     {
-      "col1": "",
-      "col2": "",
-      "col3": ""
+      "col1": "JE/T/EXCH",
+      "col2": "Smt.Raja Rajitha",
+      "col3": "LEVEA"
     }
   ],
   "failures": [
@@ -141,6 +141,21 @@
       "col1": "AREA CONTROL FXSs",
       "col2": "01-11-25",
       "col3": "SHOWING ALARM IN DUDE"
+    },
+    {
+      "col1": "BULB CABIN ESM ROOM",
+      "col2": "01-11-25",
+      "col3": "72/44 LINE BRK"
+    },
+    {
+      "col1": "COACHING DEPOT",
+      "col2": "01-11-25",
+      "col3": "TP CABLE PAIRS PROBLEM"
+    },
+    {
+      "col1": "F.CABIN",
+      "col2": "01-11-25",
+      "col3": "SPEAR PHONE REQUIRED"
     }
   ]
 }
