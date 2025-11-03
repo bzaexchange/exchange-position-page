@@ -28,17 +28,17 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ"
+      "col3": "VNC/HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "REST"
+      "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
-      "col3": "LEVEA"
+      "col3": "LEAVE"
     }
   ],
   "failures": [
@@ -128,19 +128,9 @@
       "col3": "STPM (ETTC Cable cut restoration work)"
     },
     {
-      "col1": "SSE/BRIDGES",
+      "col1": "62517 STORES SEC/ELS",
       "col2": "31-10-25",
-      "col3": "NEW NET CONNECTION TO BE PROVIDED"
-    },
-    {
-      "col1": "62517 STORES SECTION/ELS",
-      "col2": "31-10-25",
-      "col3": "PTP DIAL PAD PROBLEM"
-    },
-    {
-      "col1": "AREA CONTROL FXSs",
-      "col2": "01-11-25",
-      "col3": "SHOWING ALARM IN DUDE"
+      "col3": "DIAL PAD PROBLEM"
     },
     {
       "col1": "BULB CABIN ESM ROOM",
@@ -155,7 +145,12 @@
     {
       "col1": "F.CABIN",
       "col2": "01-11-25",
-      "col3": "SPEAR PHONE REQUIRED"
+      "col3": "SPARE PHONE REQUIRED"
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ]
 }
