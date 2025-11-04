@@ -39,6 +39,11 @@
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
       "col3": "LEAVE"
+    },
+    {
+      "col1": "",
+      "col2": "",
+      "col3": ""
     }
   ],
   "failures": [
@@ -136,6 +141,16 @@
       "col1": "BULB CABIN ESM ROOM",
       "col2": "01-11-25",
       "col3": "72/44 LINE BRK"
+    },
+    {
+      "col1": "CMS/RH",
+      "col2": "03-11-25",
+      "col3": "RAILNET SHOWING ALARM IN DUDE"
+    },
+    {
+      "col1": "68158 F CABIN",
+      "col2": "03-11-25",
+      "col3": "VOICE BRK AND CUG PHONE SPEAKER PROBLEM"
     },
     {
       "col1": "",
