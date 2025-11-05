@@ -18,7 +18,7 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "BVRM SAFETY SEMINAR"
     },
     {
       "col1": "DSTE",
@@ -28,7 +28,7 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "VNC/HQ"
+      "col3": "VNEC/HQ"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -38,7 +38,7 @@
     {
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
-      "col3": "LEAVE"
+      "col3": "REST"
     },
     {
       "col1": "",
@@ -133,24 +133,14 @@
       "col3": "STPM (ETTC Cable cut restoration work)"
     },
     {
-      "col1": "62517 STORES SEC/ELS",
-      "col2": "31-10-25",
-      "col3": "DIAL PAD PROBLEM"
-    },
-    {
       "col1": "BULB CABIN ESM ROOM",
       "col2": "01-11-25",
       "col3": "72/44 LINE BRK"
     },
     {
       "col1": "CMS/RH",
-      "col2": "03-11-25",
-      "col3": "RAILNET SHOWING ALARM IN DUDE"
-    },
-    {
-      "col1": "68158 F CABIN",
-      "col2": "03-11-25",
-      "col3": "VOICE BRK AND CUG PHONE SPEAKER PROBLEM"
+      "col2": "04-11-25",
+      "col3": "DRM I/COM 744 NOT WORKING"
     },
     {
       "col1": "",
