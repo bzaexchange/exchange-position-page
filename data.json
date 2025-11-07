@@ -18,7 +18,7 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "LEAVE"
     },
     {
       "col1": "DSTE",
@@ -28,7 +28,7 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "TUNI/ABS/COMMISSION"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -39,11 +39,6 @@
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
       "col3": "HQ"
-    },
-    {
-      "col1": "",
-      "col2": "",
-      "col3": ""
     }
   ],
   "failures": [
