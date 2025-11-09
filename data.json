@@ -23,7 +23,7 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "IDP-SIT"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
@@ -33,7 +33,7 @@
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "REST"
     },
     {
       "col1": "JE/T/EXCH",
@@ -121,6 +121,16 @@
       "col1": "T.YARD & D.CABIN",
       "col2": "07-11-25",
       "col3": "T.YARD & D.CABIN FXS-Frequently UP & DOWN"
+    },
+    {
+      "col1": "TPC TO GALA H/L",
+      "col2": "08-11-25",
+      "col3": "BILL PENDING"
+    },
+    {
+      "col1": "ELS/RPF",
+      "col2": "08-11-25",
+      "col3": "Phone to be replaced with Analog phone"
     }
   ]
 }
