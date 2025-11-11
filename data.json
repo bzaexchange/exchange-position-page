@@ -23,22 +23,22 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "OTR SIT"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "NSI/HQ/BULB CABIN (A.Insp.)"
+      "col3": "EE SAFETY SEMINAR"
     },
     {
-      "col1": "buld cabin (a.in",
+      "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
       "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
-      "col3": "HQ"
+      "col3": "REST"
     }
   ],
   "failures": [
@@ -89,11 +89,6 @@
     },
     {
       "col1": "General works ",
-      "col2": "04-10-25",
-      "col3": "Maple (Rack 3 in MIS room) wiring work"
-    },
-    {
-      "col1": "General works ",
       "col2": "10-10-25",
       "col3": "All officers rosette fixing to be ensured- Sr DSTE pffice"
     },
@@ -111,21 +106,6 @@
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
-    },
-    {
-      "col1": "TPC TO GALA H/L",
-      "col2": "08-11-25",
-      "col3": "BILL PENDING"
-    },
-    {
-      "col1": "ELS/RPF",
-      "col2": "08-11-25",
-      "col3": "Phone to be replaced with Analog phone"
-    },
-    {
-      "col1": "Sr DEnHM RES.",
-      "col2": "10-11-25",
-      "col3": "RAILNET ISSUE IN HALL"
     }
   ]
 }
