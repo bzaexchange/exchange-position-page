@@ -28,7 +28,7 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ/BULB CABIN (A.Insp.)"
+      "col3": "NSI/HQ/BULB CABIN (A.Insp.)"
     },
     {
       "col1": "buld cabin (a.in",
@@ -121,6 +121,11 @@
       "col1": "ELS/RPF",
       "col2": "08-11-25",
       "col3": "Phone to be replaced with Analog phone"
+    },
+    {
+      "col1": "Sr DEnHM RES.",
+      "col2": "10-11-25",
+      "col3": "RAILNET ISSUE IN HALL"
     }
   ]
 }
