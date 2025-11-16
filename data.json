@@ -28,12 +28,12 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "PAVP A/INSP. /HQ"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "REST"
     },
     {
       "col1": "JE/T/EXCH",
@@ -101,6 +101,16 @@
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
+    },
+    {
+      "col1": "SC H/L",
+      "col2": "15-11-25",
+      "col3": "68988 Not wkg"
+    },
+    {
+      "col1": "ART H/L",
+      "col2": "15-11-25",
+      "col3": "68984 Not wkg"
     }
   ]
 }
