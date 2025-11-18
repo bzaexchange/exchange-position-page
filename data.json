@@ -18,7 +18,7 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "TUNI-RVD ABS WORKS INSP"
     },
     {
       "col1": "DSTE",
@@ -28,7 +28,7 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ/PAVP"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -38,14 +38,14 @@
     {
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
-      "col3": "HQ"
+      "col3": "REST"
     }
   ],
   "failures": [
     {
       "col1": "DLS, Projects, Constructions, ORH",
       "col2": "16-09-25",
-      "col3": "IOH/DLS 67931 cable cut inside termination pending ( in old building 10p cable termination completed 15-11-25),  casing& caping work pending"
+      "col3": "IOH/DLS 67931 cable cut inside termination pending ( in old building 10p cable termination completed 15-11-25),  casing& caping work pending, new ioh 20P termination completed on 18-11-25"
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
@@ -90,7 +90,7 @@
     {
       "col1": "Divisional office",
       "col2": "08-09-25",
-      "col3": "RPF IN GATE TO OUT GATE CABLE PERMANENT RESTORATION"
+      "col3": "RPF IN GATE TO OUT GATE CABLE PERMANENT RESTORATION, ROAD CUTTING"
     },
     {
       "col1": "Divisional office",
@@ -98,19 +98,19 @@
       "col3": "Sr.DSC office renovation, table wiring pending"
     },
     {
+      "col1": "Divisional office",
+      "col2": "18-11-25",
+      "col3": "Sports OS, Net new provision"
+    },
+    {
+      "col1": "Divisional office",
+      "col2": "18-11-25",
+      "col3": "Comm office 4F, security 6F, spare splicing to be done"
+    },
+    {
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
-    },
-    {
-      "col1": "9652018541 WAGON DEPOT NET",
-      "col2": "17-11-25",
-      "col3": "DOOR LOCKED"
-    },
-    {
-      "col1": "EnHM OFFICE TPs AND NET RECONNECION",
-      "col2": "17-11-25",
-      "col3": "TEMPORARILY CONNECTIONS GIVEN"
     }
   ]
 }
