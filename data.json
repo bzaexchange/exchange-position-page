@@ -18,7 +18,7 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "TUNI-RVD ABS WORKS INSP"
+      "col3": "HQ"
     },
     {
       "col1": "DSTE",
@@ -111,6 +111,21 @@
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
+    },
+    {
+      "col1": "RAILWAY HOSPITAL",
+      "col2": "19-11-25",
+      "col3": "67777 Dispensary PTP not wkg"
+    },
+    {
+      "col1": "CTI/ GENERAL",
+      "col2": "19-11-25",
+      "col3": "Net Connection to be provided"
+    },
+    {
+      "col1": "ADEN/TRACK",
+      "col2": "19-11-25",
+      "col3": "TPs & Net Connection to be provided"
     }
   ]
 }
