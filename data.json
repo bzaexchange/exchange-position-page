@@ -28,12 +28,12 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ"
+      "col3": "KCC-N A/Insp"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "STPM"
     },
     {
       "col1": "JE/T/EXCH",
@@ -106,6 +106,16 @@
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
+    },
+    {
+      "col1": "67910 CDO/Coaching Depot",
+      "col2": "21-11-25",
+      "col3": "Cables disconnected due to window replacement work"
+    },
+    {
+      "col1": " AMM Chamber, Div. Office",
+      "col2": "21-11-25",
+      "col3": "Railnet wiring work"
     }
   ]
 }
