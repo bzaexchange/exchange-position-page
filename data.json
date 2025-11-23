@@ -23,17 +23,17 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "LC NOs: 3&52 (G.I), GDV Safety Seminar"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "REST\\PERMISSION"
+      "col3": "KCC-NORTH (A.I)/HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "REST"
+      "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
@@ -116,6 +116,11 @@
       "col1": " AMM Chamber, Div. Office",
       "col2": "21-11-25",
       "col3": "Railnet wiring work"
+    },
+    {
+      "col1": "THOUGH YARD- TP NO: 68175",
+      "col2": "23-11-25",
+      "col3": "TP Display Problem."
     }
   ]
 }
