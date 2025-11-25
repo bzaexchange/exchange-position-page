@@ -45,7 +45,7 @@
     {
       "col1": "DLS, Projects, Constructions, ORH",
       "col2": "16-09-25",
-      "col3": "IOH/DLS 67931 cable cut inside termination pending ( in old building 10p cable termination completed 15-11-25),  casing& caping work pending, new ioh 20P termination completed on 18-11-25"
+      "col3": "IOH/DLS 67931 no to be given"
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
@@ -111,6 +111,11 @@
       "col1": " AMM Chamber, Div. Office",
       "col2": "21-11-25",
       "col3": "Railnet wiring work"
+    },
+    {
+      "col1": "CDO/OFFICE",
+      "col2": "24-11-25",
+      "col3": "Casing & caping work pending at chamber,wiring work pending at office room"
     }
   ]
 }
