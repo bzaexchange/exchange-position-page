@@ -43,16 +43,6 @@
   ],
   "failures": [
     {
-      "col1": "DLS, Projects, Constructions, ORH",
-      "col2": "16-09-25",
-      "col3": "IOH/DLS 67931 no to be given"
-    },
-    {
-      "col1": "DLS, Projects, Constructions, ORH",
-      "col2": "15-11-24",
-      "col3": "725 quarters, near SIB- LB jointing work"
-    },
-    {
       "col1": "Yard works",
       "col2": "03-05-25",
       "col3": "CN/stores to H cabin cable laying work 300 mtrs,"
@@ -70,17 +60,17 @@
     {
       "col1": "General works ",
       "col2": "04-02-25",
-      "col3": "All the racks must be updated with particulars and labelling to be done for all the cables (mostly completed)."
+      "col3": "All the racks must be updated with particulars and labeling to be done for all the cables (mostly completed)."
     },
     {
       "col1": "General works ",
       "col2": "01-07-25",
-      "col3": "FDMS particulars to be updated in all locations"
+      "col3": "FDMS particulars to be updated in all locations, Rack-2 completed by sameena."
     },
     {
       "col1": "General works ",
       "col2": "26-07-25",
-      "col3": "Railnet Router-1 showing Power alarm .RCIL"
+      "col3": "Railnet Router-1 showing Power alarm RCIL"
     },
     {
       "col1": "General works ",
@@ -90,7 +80,7 @@
     {
       "col1": "Divisional office",
       "col2": "08-09-25",
-      "col3": "RPF IN GATE TO OUT GATE CABLE PERMANENT RESTORATION, ROAD CUTTING"
+      "col3": "RPF in gate to out gate cable permanent restoration, Road cutting."
     },
     {
       "col1": "Divisional office",
@@ -108,14 +98,24 @@
       "col3": "STPM (ETTC Cable cut restoration work)"
     },
     {
-      "col1": " AMM Chamber, Div. Office",
-      "col2": "21-11-25",
-      "col3": "Railnet wiring work"
+      "col1": "DLS, Projects, Constructions, ORH",
+      "col2": "24-11-25",
+      "col3": "CDO/OFFICE: Casing & caping work pending at chamber, wiring work pending at office room"
     },
     {
-      "col1": "CDO/OFFICE",
-      "col2": "24-11-25",
-      "col3": "Casing & caping work pending at chamber,wiring work pending at office room"
+      "col1": "DLS, Projects, Constructions, ORH",
+      "col2": "16-09-25",
+      "col3": "IOH/DLS 67931 number to be given"
+    },
+    {
+      "col1": "DLS, Projects, Constructions, ORH",
+      "col2": "15-11-24",
+      "col3": "725 Quarters, near SIB- LB jointing work"
+    },
+    {
+      "col1": "Railway station, ELS, VNC",
+      "col2": "16-11-25",
+      "col3": "VIP Siding /North wiring work"
     }
   ]
 }
