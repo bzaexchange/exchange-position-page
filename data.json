@@ -23,12 +23,12 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "GLP"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ"
+      "col3": "DEL- A/I"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -116,6 +116,11 @@
       "col1": "Railway station, ELS, VNC",
       "col2": "16-11-25",
       "col3": "VIP Siding /North wiring work"
+    },
+    {
+      "col1": "Divisional  office",
+      "col2": "26=11-25",
+      "col3": "ADEN/Lines/BZA Chamber Renovation work"
     }
   ]
 }
