@@ -23,17 +23,17 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "PERMISSION"
+      "col3": "PKO PCR LOGIC UPDATION"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ/DEL"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "REST"
+      "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
@@ -114,8 +114,13 @@
     },
     {
       "col1": "Divisional  office",
-      "col2": "26=11-25",
+      "col2": "26-11-25",
       "col3": "ADEN/Lines/BZA Chamber Renovation work"
+    },
+    {
+      "col1": "Area Control 8 port switch",
+      "col2": "30-1-25",
+      "col3": "Swict hanged."
     }
   ]
 }
