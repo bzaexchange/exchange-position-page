@@ -93,6 +93,16 @@
       "col3": "Comm office 4F, security 6F, spare splicing to be done"
     },
     {
+      "col1": "Divisional  office",
+      "col2": "26-11-25",
+      "col3": "ADEN/Lines/BZA Chamber Renovation work"
+    },
+    {
+      "col1": "Divisional  office",
+      "col2": "02-12-25",
+      "col3": "AMM Office -ELS Wiring work"
+    },
+    {
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
@@ -105,22 +115,12 @@
     {
       "col1": "DLS, Projects, Constructions, ORH",
       "col2": "15-11-24",
-      "col3": "725 Quarters, near SIB- LB jointing work"
+      "col3": "725 Quarters, Near SIB- LB jointing work"
     },
     {
       "col1": "Railway station, ELS, VNC",
       "col2": "16-11-25",
       "col3": "VIP Siding /North wiring work"
-    },
-    {
-      "col1": "Divisional  office",
-      "col2": "26-11-25",
-      "col3": "ADEN/Lines/BZA Chamber Renovation work"
-    },
-    {
-      "col1": "68151 DySS/Branch",
-      "col2": "01-12-25",
-      "col3": "Line Brk. Temporarily interchanged with 416"
     }
   ]
 }
