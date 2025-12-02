@@ -18,17 +18,17 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "Tele supervisors interaction at 16.00 Hrs on goods shed works/HQ"
+      "col3": "HQ"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "AVLI PCR LOGIC UPDATION"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ"
+      "col3": "GWM SAFETY SEMINAR"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -98,11 +98,6 @@
       "col3": "ADEN/Lines/BZA Chamber Renovation work"
     },
     {
-      "col1": "Divisional  office",
-      "col2": "02-12-25",
-      "col3": "AMM Office -ELS Wiring work"
-    },
-    {
       "col1": "AIR, STPM, Rly Hospital,South Yard",
       "col2": "10-09-25",
       "col3": "STPM (ETTC Cable cut restoration work)"
@@ -121,6 +116,11 @@
       "col1": "Railway station, ELS, VNC",
       "col2": "16-11-25",
       "col3": "VIP Siding /North wiring work"
+    },
+    {
+      "col1": "ELS",
+      "col2": "02-12-25",
+      "col3": "AMM Office -ELS Wiring work"
     }
   ]
 }
