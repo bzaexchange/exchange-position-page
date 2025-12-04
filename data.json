@@ -18,7 +18,7 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "NRP-A/I SAFETY SEMINAR"
+      "col3": "LAP"
     },
     {
       "col1": "DSTE",
@@ -28,7 +28,7 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "GWM SAFETY SEMINAR"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -121,11 +121,6 @@
       "col1": "RLY INSTITUTE",
       "col2": "03-12-25",
       "col3": "LINE BRK 10/91 "
-    },
-    {
-      "col1": "AREA CONTROL",
-      "col2": "03-12-25",
-      "col3": "8 Port VOIP FXS Not wkg"
     }
   ]
 }
