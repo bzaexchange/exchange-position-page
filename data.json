@@ -18,12 +18,12 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "NRP-A/I SAFETY SEMINAR"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "KVM/TRADE TEST"
     },
     {
       "col1": "ADSTE",
@@ -104,11 +104,6 @@
     },
     {
       "col1": "DLS, Projects, Constructions, ORH",
-      "col2": "24-11-25",
-      "col3": "CDO/OFFICE: Casing & caping work pending at chamber, wiring work pending at office room"
-    },
-    {
-      "col1": "DLS, Projects, Constructions, ORH",
       "col2": "15-11-24",
       "col3": "725 Quarters, Near SIB- LB jointing work"
     },
@@ -121,6 +116,16 @@
       "col1": "ELS",
       "col2": "02-12-25",
       "col3": "AMM Office -ELS Wiring work"
+    },
+    {
+      "col1": "RLY INSTITUTE",
+      "col2": "03-12-25",
+      "col3": "LINE BRK 10/91 "
+    },
+    {
+      "col1": "AREA CONTROL",
+      "col2": "03-12-25",
+      "col3": "8 Port VOIP FXS Not wkg"
     }
   ]
 }
