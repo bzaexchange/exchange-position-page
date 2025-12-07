@@ -18,12 +18,12 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ/LEAVE"
+      "col3": "HQ"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "PAV LC VO. 26,38,40 A.INSP"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
@@ -33,7 +33,7 @@
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "REST"
     },
     {
       "col1": "JE/T/EXCH",
@@ -108,9 +108,9 @@
       "col3": "AMM Office -ELS Wiring work"
     },
     {
-      "col1": "RLY INSTITUTE",
-      "col2": "03-12-25",
-      "col3": "LINE BRK 10/91 "
+      "col1": "Area control",
+      "col2": "07-12-25",
+      "col3": "8 port FXS not wkg"
     }
   ]
 }
