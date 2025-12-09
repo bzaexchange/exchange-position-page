@@ -3,7 +3,7 @@
     {
       "col1": "DRM",
       "col2": "Shri.Mohit Sonkiya",
-      "col3": "HQ"
+      "col3": "GDR"
     },
     {
       "col1": "ADRM INFRA",
@@ -18,22 +18,22 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "GDR ( ACC WITH DRM/BZA)"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "RMV L.C.NO:43 (A.I)"
+      "col3": "NDM & L.C.NO:55 (A.I)"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "N S I / HQ"
+      "col3": " HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "RRB EXAM"
     },
     {
       "col1": "JE/T/EXCH",
@@ -106,11 +106,6 @@
       "col1": "ELS",
       "col2": "02-12-25",
       "col3": "AMM Office -ELS Wiring work"
-    },
-    {
-      "col1": "Area Control-8 Port Switch",
-      "col2": "07-12-25",
-      "col3": "Hanged"
     }
   ]
 }
