@@ -23,17 +23,17 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "NS PCR logic updation"
+      "col3": "UPL.LC.57. A/I"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": " HQ"
+      "col3": "EE/DEL. IP.A/I"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "BTC"
     },
     {
       "col1": "JE/T/EXCH",
@@ -113,9 +113,14 @@
       "col3": "Security control phone shifting"
     },
     {
-      "col1": "Yard works",
-      "col2": "09-12-25",
-      "col3": "Area control 8 Port switch issue"
+      "col1": "Loco colony qtrs no 725-D",
+      "col2": "10-12-25",
+      "col3": "Net connection to be given"
+    },
+    {
+      "col1": "Divisional  office",
+      "col2": "10-12-25",
+      "col3": "AOM/Goods. 2 chamber net"
     }
   ]
 }
