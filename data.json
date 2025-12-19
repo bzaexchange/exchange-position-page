@@ -23,7 +23,7 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "KKLR to AKVD IB & LC NO: 81 & 93 A/Insp"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
@@ -33,7 +33,7 @@
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "LEAVE"
+      "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
@@ -103,9 +103,14 @@
       "col3": "VIP Siding /North wiring work"
     },
     {
-      "col1": "Vijayawada Division",
-      "col2": "17-12-25",
-      "col3": "Railnet problem in  some IP series due to I/C problem from SC"
+      "col1": "ADRM/INFRA-GM I/C",
+      "col2": "19-12-25",
+      "col3": "Tested & Found OK @ Exch. "
+    },
+    {
+      "col1": "Sr.DOM Chamber",
+      "col2": "19-12-25",
+      "col3": "Wiring work to be done."
     }
   ]
 }
