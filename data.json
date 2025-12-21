@@ -18,22 +18,22 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "NSI/EE"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "AKVD"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "MBD/HQ"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "ELS"
+      "col3": "REST"
     },
     {
       "col1": "JE/T/EXCH",
@@ -101,11 +101,6 @@
       "col1": "Railway station, ELS, VNC",
       "col2": "16-11-25",
       "col3": "VIP Siding /North wiring work"
-    },
-    {
-      "col1": "Sr.DOM Chamber",
-      "col2": "19-11-25",
-      "col3": "Wiring work to be done"
     }
   ]
 }
