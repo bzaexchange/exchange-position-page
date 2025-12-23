@@ -23,7 +23,7 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "BZA"
     },
     {
       "col1": "ADSTE",
@@ -101,6 +101,21 @@
       "col1": "Railway station, ELS, VNC",
       "col2": "16-11-25",
       "col3": "VIP Siding /North wiring work"
+    },
+    {
+      "col1": "DRM,ADRM Chambers renovation work",
+      "col2": "22-12-2025",
+      "col3": "Krone wiring to be updated"
+    },
+    {
+      "col1": "2455443 TPC to GALA BSNL HOTLINE",
+      "col2": "21-12-2025",
+      "col3": "DOC NO. 114798189"
+    },
+    {
+      "col1": "ELECTRICAL CONSTRUCTION NET",
+      "col2": "22-12-2025",
+      "col3": "Cont. No. 9701371180"
     }
   ]
 }
