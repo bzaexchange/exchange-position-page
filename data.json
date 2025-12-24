@@ -23,12 +23,12 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "BZA"
+      "col3": "UNDI LC - 113,114,138,134 A/I"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "MBD (N I WORK)"
+      "col3": "TSR A/I"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -38,7 +38,7 @@
     {
       "col1": "JE/T/EXCH",
       "col2": "Smt.Raja Rajitha",
-      "col3": "M.L UP TO 21-05-26"
+      "col3": "ML UP TO 21-05-26"
     }
   ],
   "failures": [
@@ -103,19 +103,14 @@
       "col3": "VIP Siding /North wiring work"
     },
     {
-      "col1": "DRM,ADRM Chambers renovation work",
+      "col1": "Divisional office",
       "col2": "22-12-2025",
-      "col3": "Krone wiring to be updated"
+      "col3": "DRM, ADRM's Chambers renovation work"
     },
     {
       "col1": "2455443 TPC to GALA BSNL HOTLINE",
       "col2": "21-12-2025",
       "col3": "DOC NO. 114798189"
-    },
-    {
-      "col1": "ELECTRICAL CONSTRUCTION NET",
-      "col2": "22-12-2025",
-      "col3": "Cont. No. 9701371180"
     }
   ]
 }
