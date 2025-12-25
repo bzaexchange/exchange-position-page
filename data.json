@@ -23,12 +23,12 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "NDO(A.I)"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "TEL/SOUTH A/I"
+      "col3": "TSR(A.I)"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -111,11 +111,6 @@
       "col1": "2455443 TPC to GALA BSNL HOTLINE",
       "col2": "21-12-2025",
       "col3": "DOC NO. 114798189"
-    },
-    {
-      "col1": "DIVISIONAL OFFICE",
-      "col2": "24-12-2025",
-      "col3": "MW 11/6 NET FAILURE"
     }
   ]
 }
