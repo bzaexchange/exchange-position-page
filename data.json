@@ -3,7 +3,7 @@
     {
       "col1": "DRM",
       "col2": "Shri.Mohit Sonkiya",
-      "col3": "VSKP"
+      "col3": "HQ"
     },
     {
       "col1": "ADRM INFRA",
@@ -18,17 +18,17 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "VSKP"
+      "col3": "HQ"
     },
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "HQ"
+      "col3": "BZA"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "NSI/HQ"
+      "col3": "HQ/VTM"
     },
     {
       "col1": "SSE/T/EXCH",
@@ -106,6 +106,21 @@
       "col1": "Divisional office",
       "col2": "22-12-2025",
       "col3": "DRM, ADRM's Chambers renovation work"
+    },
+    {
+      "col1": "CSTE/Proj-III OFFICE",
+      "col2": "29-12-2025",
+      "col3": "CABLE TO BE DRAWN FOR RAILNET PROVISION TO 5 SYSTEMS"
+    },
+    {
+      "col1": "Sr DSC OFFICE ",
+      "col2": "29-12-2025",
+      "col3": "PHONES SHIFTING"
+    },
+    {
+      "col1": "ADSTE/BZA CHAMBER",
+      "col2": "29-12-2025",
+      "col3": "PHONES SHIFTING"
     }
   ]
 }
