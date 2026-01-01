@@ -118,14 +118,9 @@
       "col3": "PHONES SHIFTING"
     },
     {
-      "col1": "SSE/TRIPSHED",
-      "col2": "31-12-25",
-      "col3": "TP 67366, NOISE AND VOICE LOW"
-    },
-    {
-      "col1": "CAUTION ORDER/Sr.DOM OFFICE",
-      "col2": "31-12-25",
-      "col3": "TP 68246, VOICE BRK"
+      "col1": "TPC/BZA to GALA BSNL H/L",
+      "col2": "01-01-2026",
+      "col3": "H/L is not working."
     }
   ]
 }
