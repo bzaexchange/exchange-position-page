@@ -23,17 +23,17 @@
     {
       "col1": "DSTE",
       "col2": "Shri.A.Srinivasulu  ",
-      "col3": "BZA"
+      "col3": "HQ"
     },
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "HQ/VTM"
+      "col3": "HQ"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "REST"
+      "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
@@ -118,9 +118,14 @@
       "col3": "PHONES SHIFTING"
     },
     {
-      "col1": "ADSTE/BZA CHAMBER",
-      "col2": "29-12-2025",
-      "col3": "PHONES SHIFTING"
+      "col1": "SSE/TRIPSHED",
+      "col2": "31-12-25",
+      "col3": "TP 67366, NOISE AND VOICE LOW"
+    },
+    {
+      "col1": "CAUTION ORDER/Sr.DOM OFFICE",
+      "col2": "31-12-25",
+      "col3": "TP 68246, VOICE BRK"
     }
   ]
 }
