@@ -28,12 +28,12 @@
     {
       "col1": "ADSTE",
       "col2": " Shri.V.Brahmaji Rao",
-      "col3": "REVIEW MEETING @SC"
+      "col3": "SPORTS MEET @SC"
     },
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "Arrangements @ CRS Enquiry"
+      "col3": "HQ"
     },
     {
       "col1": "JE/T/EXCH",
@@ -113,14 +113,19 @@
       "col3": "CABLE TO BE DRAWN FOR RAILNET PROVISION TO 5 SYSTEMS"
     },
     {
-      "col1": "Sr DSC OFFICE ",
-      "col2": "29-12-2025",
-      "col3": "PHONES SHIFTING"
-    },
-    {
       "col1": "TPC/BZA to GALA BSNL H/L",
       "col2": "01-01-2026",
       "col3": "H/L is not working."
+    },
+    {
+      "col1": "                   TRD/NIZAM GATE                                                                                                                                                                                                                                                                   TRD OFFICE/ NIZAM GATE",
+      "col2": "02-02-2026",
+      "col3": "CABLE TO BE DRAWN FOR PRINTER NET CONNECTION"
+    },
+    {
+      "col1": "UPS INSTALLATION WORK",
+      "col2": "02-02-2026",
+      "col3": "TO BE INSTALLED IN EXCHANGE BATTERY ROOM"
     }
   ]
 }
