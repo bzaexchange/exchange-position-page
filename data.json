@@ -33,7 +33,7 @@
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "HQ"
+      "col3": "AIR COLONY"
     },
     {
       "col1": "JE/T/EXCH",
@@ -116,6 +116,11 @@
       "col1": "UPS INSTALLATION WORK",
       "col2": "02-02-2026",
       "col3": "TO BE INSTALLED IN EXCHANGE BATTERY ROOM"
+    },
+    {
+      "col1": "AUDIT OFFICE NET NEW CONNECTION",
+      "col2": "05-01-2026",
+      "col3": "CABLE TO BE LAYED THROUGH CEILING"
     }
   ]
 }
