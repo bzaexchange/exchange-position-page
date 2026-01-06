@@ -18,7 +18,7 @@
     {
       "col1": "Sr.DSTE",
       "col2": "  Shri.P.Satish Sankar",
-      "col3": "HQ"
+      "col3": "BZA-PUA SAG INSPECTION"
     },
     {
       "col1": "DSTE",
@@ -33,7 +33,7 @@
     {
       "col1": "SSE/T/EXCH",
       "col2": "        Shri.V.V.S.Aditya Kumar",
-      "col3": "AIR COLONY"
+      "col3": "ELS"
     },
     {
       "col1": "JE/T/EXCH",
@@ -103,12 +103,7 @@
       "col3": "DRM, ADRM's Chambers renovation work"
     },
     {
-      "col1": "CSTE/Proj-III OFFICE",
-      "col2": "29-12-2025",
-      "col3": "CABLE TO BE DRAWN FOR RAILNET PROVISION TO 5 SYSTEMS"
-    },
-    {
-      "col1": "TPC/BZA to GALA BSNL H/L",
+      "col1": "TPC/BZA to GALA BSNL H/L2455443, 2429234",
       "col2": "01-01-2026",
       "col3": "H/L is not working."
     },
@@ -118,9 +113,14 @@
       "col3": "TO BE INSTALLED IN EXCHANGE BATTERY ROOM"
     },
     {
-      "col1": "AUDIT OFFICE NET NEW CONNECTION",
-      "col2": "05-01-2026",
-      "col3": "CABLE TO BE LAYED THROUGH CEILING"
+      "col1": "RPF Sri.REDDY ",
+      "col2": "07-01-2026",
+      "col3": "NEW PUBLIC IP TO BE GIVEN"
+    },
+    {
+      "col1": "STPM",
+      "col2": "07-01-2026",
+      "col3": "CSTE/Proj-III OFFICE,STPM 4 SYS COMPLETED ON 07-01-2026,1 SYSEM PENDING"
     }
   ]
 }
